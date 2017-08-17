@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'FILTERS' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="filters-content">
+  <ion-item-group class="filters-group">
+    
+
+   
+
+    
+
+   
+    
+    
+
+    
+    <ion-item-divider>{{ 'ADD_&_SUBTRACT' | translate }}</ion-item-divider>
+    <form [formGroup]="counterForm">
+      <ion-list class="counter-list">
+        <ion-item class="counter-item">
+          <span class="counter-label">Amount</span>
+          <counter-input formControlName="counter"></counter-input>
+        </ion-item>
+        <ion-item class="counter-item">
+          <span class="counter-label">Bedrooms</span>
+          <span class="counter-value">{{counterForm.controls.counter2.value}}</span>
+          <counter-input formControlName="counter2" basic></counter-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+
+    
+  </ion-item-group>
+</ion-content>

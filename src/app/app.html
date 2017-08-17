@@ -1,0 +1,34 @@
+<ion-menu [content]="content" [swipeEnabled]="false">
+  <!-- <ion-content class="menu-content">
+    <ion-list class="menu-list">
+      <button ion-item detail-none *ngFor="let page of pages" (click)="openPage(page)">
+        <ion-icon *ngIf="page.icon" name="{{page.icon}}" item-left></ion-icon>
+        {{page.title}}
+      </button>
+      <button ion-item detail-none *ngFor="let page of pushPages" (click)="pushPage(page)">
+        <ion-icon *ngIf="page.icon" name="{{page.icon}}" item-left></ion-icon>
+        {{page.title}}
+      </button>
+    </ion-list>
+  </ion-content> -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{'PRODUCTTYPE' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list no-lines *ngFor="let ptl of productTypeList.producttypes">
+      <button ion-item (click)="toggleSubmenu(ptl.maintype)">
+      <ion-icon [name]="iconTxt[ptl.maintype] || 'add'"></ion-icon>
+      {{ptl.maintype}}
+      </button>
+      <ion-list no-lines *ngIf="mainMenu == ptl.maintype" style="margin-left: 18px;">
+        <button ion-item *ngFor="let st of ptl.subtype">
+      {{st.name}}
+      </button>
+      </ion-list>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>

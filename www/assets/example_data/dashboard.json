@@ -1,0 +1,11 @@
+{
+    "dashboard": {
+        "cover": {
+            "id": 123456,
+            "url": "xxx"
+        },
+        "lastview": [{}],
+        "shop": [{}],
+        "popular": [{}]
+    }
+}

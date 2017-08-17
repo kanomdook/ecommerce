@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'SEARCH' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="list-big-content">
+  <ion-searchbar></ion-searchbar>
+  <ion-row style="background-color: #fff;margin-bottom: 6px;padding: 10px;">
+    <ion-col col-5><ion-icon name="ios-funnel"></ion-icon> Filter</ion-col>
+    <ion-col col-5><ion-icon name="swap"></ion-icon> Sort</ion-col>
+    <ion-col col-2><ion-icon name="list"></ion-icon></ion-col>
+  </ion-row>
+  <div class="list-big">
+    <ion-list>
+      <button class="list-item" ion-item *ngFor="let item of list1.items">
+        <ion-row no-padding class="content-row">
+          <ion-col no-padding width-33 class="item-avatar">
+            <preload-image class="avatar-image" [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
+          </ion-col>
+          <ion-col no-padding width-67>
+            <h3 style="color: #ae75e7;font-weight: bold;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.name}}</h3>
+            <p style="color: #ff5722;">8,500 บาท</p>
+            <p><span style="text-decoration: line-through">18,500 บาท</span> -68%</p>
+            <p style="color: gold"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> (19)</p>
+          </ion-col>
+        </ion-row>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

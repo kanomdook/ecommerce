@@ -1,0 +1,48 @@
+<ion-header class="listing-header">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <div class="header-logo">
+        <preload-image [ratio]="{w:583, h:100}" src="./assets/images/header_logo_white.png"></preload-image>
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="listing-content">
+  <background-image class="image-heading" [src]="listing.banner_image">
+    <ion-row class="heading-row">
+      <ion-col no-padding offset-100>
+        <h2 class="main-title">{{listing.banner_title}}</h2>
+      </ion-col>
+    </ion-row>
+  </background-image>
+
+  <h4 class="categories-title">{{'LASTVISIT' | translate}}</h4>
+  <data-scroll-x [dataListX]="listing.categories"></data-scroll-x>
+
+  <h4 class="categories-title">{{'POPULARSHOPS' | translate}} <span class="see-all">see all</span></h4>
+  <data-grid [dataGrids]="listing.popularshops"></data-grid>
+
+  <h4 class="categories-title">{{'POPULARPRODUCTS' | translate}} <span class="see-all">see all</span></h4>
+  <data-scroll-x [dataListX]="listing.populars"></data-scroll-x>
+</ion-content>
+
+<!--menu modal-->
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>categories</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list no-lines>
+      <button ion-item>
+      <ion-icon name="add"></ion-icon>
+      เสื้อผ้าแฟชั่น
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>

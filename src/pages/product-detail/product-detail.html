@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Product Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="contact-card-content">
+  <topbar [dataTopBar]="productData"></topbar>
+
+  <ion-list class="details-list">
+    <ion-item class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="ios-cash-outline"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">Price {{productData.unitprice | number}} ฿</span>
+
+    </ion-item>
+    <ion-item class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="ios-cube-outline"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">{{productData.name}}</span>
+      <span class="detail-text">{{productData.detail}}</span>
+    </ion-item>
+    <ion-item class="detail-item">
+
+      <h3 class="categories-title-pomotion">
+        <ion-icon name="md-pricetags"></ion-icon> {{' Promotion' | translate}}</h3>
+      <span class="detail-text">เมือซื้อเสื้อยีนส์ 1 แถม กางเกงยีนส์ขาสั้น 1 ตัว</span>
+    </ion-item>
+    <h4 class="categories-title">Select Size</h4>
+    <ion-list class="radio-tags" radio-group>
+      <ion-item class="radio-tag">
+        <ion-label>32</ion-label>
+        <ion-radio value="s"></ion-radio>
+      </ion-item>
+      <ion-item class="radio-tag">
+        <ion-label>
+          <span>33</span>
+        </ion-label>
+        <ion-radio value="m"></ion-radio>
+      </ion-item>
+      <ion-item class="radio-tag">
+        <ion-label>
+          <span>34</span>
+        </ion-label>
+        <ion-radio value="l"></ion-radio>
+      </ion-item>
+      <ion-item class="radio-tag">
+        <ion-label>
+          <span>35</span>
+        </ion-label>
+        <ion-radio value="xl"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+  </ion-list>
+  <h4 class="categories-title">Relation products</h4>
+  <data-scroll-x [dataListX]="productData.relationProducts"></data-scroll-x>  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="btn">
+    <div style="text-align: center;">
+      <ion-buttons>
+        <button ion-button icon-left (click)="goToSchedulePage()">
+        <ion-icon name="cart"></ion-icon>Add to Cart
+      </button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>

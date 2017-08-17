@@ -1,0 +1,36 @@
+{
+    "promotioncode": {
+        "id": "code001",
+        "name": "ลดท้าลมร้อน",
+        "code": "codehot001",
+        "startdate": "2017-08-10",
+        "enddate": "2017-08-30",
+        "status": [
+            {
+                "status": "activate"
+            },
+            {
+                "status": "inactivate"
+            }
+        ],
+        "log": [
+            {
+                "user": "xxx",
+                "date": "2017-08-10T06:25:00"
+            }
+        ],
+        "detail": "Super Summer Sale ลดท้าลมร้อน",
+        "discounttype": {
+            "discounttype": [
+                {
+                    "type": "Baht"
+                },
+                {
+                    "type": "Percent"
+                }
+            ],
+            "value": 50
+        },
+        "shop": "shop001"
+    }
+}
