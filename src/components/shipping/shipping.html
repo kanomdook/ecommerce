@@ -1,4 +1,167 @@
-<!-- Generated template for the ShippingComponent component -->
-<div>
-  {{text}}
-</div>
+<h3 class="section-title" style="margin-top: 5%;">ส่งที่ </h3>
+
+<ion-list class="radio-group" radio-group [(ngModel)]="chk">
+    <ion-item class="radio-item">
+        <ion-label style="color:black;">
+            <ion-row>
+
+                <ion-col col-12>{{datapayment.customer.displayName}}</ion-col>
+                <!--Sirintra Wannakhaew-->
+            </ion-row>
+            <ion-row>
+                <ion-col col-12>{{datapayment.customer.address.address}} {{datapayment.customer.address.subdistrict}}</ion-col>
+                <!--499/195 Saimai Bangkok 10220-->
+            </ion-row>
+            <ion-row>
+                <ion-col col-12>{{datapayment.customer.tel}}</ion-col>
+            </ion-row>
+        </ion-label>
+        <ion-radio item-left checked value="true"></ion-radio>
+    </ion-item>
+</ion-list>
+<p style="color:blue;">เพิ่มที่อยู่ใหม่</p>
+
+
+<form class="forms-examples-segment" *ngIf="chk === 'false'" class="sample-form validations-form" [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <section class="form-section">
+
+        <ion-item>
+            <ion-label floating>ชื่อ-นาสกุล</ion-label>
+            <ion-input type="text" formControlName="name" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.name">
+                <div class="error-message" *ngIf="validations_form.get('name').hasError(validation.type) && (validations_form.get('name').dirty || validations_form.get('name').touched)">
+                    {{ validation.message }}
+                </div>
+            </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label floating>ที่อยู่</ion-label>
+            <ion-input type="textarea" formControlName="address" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.address">
+                <div class="error-message" *ngIf="validations_form.get('address').hasError(validation.type) && (validations_form.get('address').dirty || validations_form.get('address').touched)">
+                    {{ validation.message }}
+                </div>
+            </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label floating>รหัสไปรษณีย์</ion-label>
+            <ion-input type="text" formControlName="postcode" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.postcode">
+                <div class="error-message" *ngIf="validations_form.get('postcode').hasError(validation.type) && (validations_form.get('postcode').dirty || validations_form.get('postcode').touched)">
+                    {{ validation.message }}
+                </div>
+            </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label floating>จังหวัด</ion-label>
+            <ion-input type="text" formControlName="province" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.province">
+                <div class="error-message" *ngIf="validations_form.get('province').hasError(validation.type) && (validations_form.get('province').dirty || validations_form.get('province').touched)">
+                    {{ validation.message }}
+                </div>
+            </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label floating>เขต</ion-label>
+            <ion-input type="text" formControlName="district" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.district">
+                <div class="error-message" *ngIf="validations_form.get('district').hasError(validation.type) && (validations_form.get('district').dirty || validations_form.get('district').touched)">
+                    {{ validation.message }}
+                </div>
+            </ng-container>
+        </div>
+
+        <ion-item>
+            <ion-label floating>เบอร์ติดต่อ</ion-label>
+            <ion-input type="text" formControlName="tel" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.tel">
+                <div class="error-message" *ngIf="validations_form.get('tel').hasError(validation.type) && (validations_form.get('tel').dirty || validations_form.get('tel').touched)">
+                    {{ validation.message }}
+                </div>
+            </ng-container>
+        </div>
+
+    </section>
+
+</form>
+<p>
+    โปรดเลือกแบบของการส่งสินค้า
+</p>
+<ion-grid padding class="forms-examples-segment" *ngFor="let item of datapayment.products">
+    <ion-row>
+        <ion-col col-12 class="horizontal-item">
+            <p class="txt-centr">ร้านเสื้อมือสอง</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-5 class="horizontal-item">
+            <!--<preload-image [ratio]="{w:1, h:1}" src="item.image"></preload-image>-->
+        </ion-col>
+        <ion-col col-7 class="horizontal-item">
+            <p class="txt-centr">{{item.name}}</p>
+            <p class="txt-centr2">{{item.qty}}</p>
+            <p class="txt-centr2">{{item.price}}</p>
+        </ion-col>
+    </ion-row>
+    <p>
+        ตัวเลือกในการจัดส่ง
+    </p>
+    <ion-list class="radio-tags" radio-group>
+
+        <ion-row *ngFor="let itm of item.choice">
+            <ion-col col-6 class="horizontal-item">
+                <ion-item class="radio-tag">
+                    <ion-label>
+                        <p style="white-space: normal; font-weight: bold;">{{itm.discription}}</p>
+                        <p style="white-space: normal;">{{itm.type}}</p>
+
+                    </ion-label>
+                    <ion-radio value="any"></ion-radio>
+                </ion-item>
+            </ion-col>
+            <!--<ion-col col-6 class="horizontal-item">
+                <ion-item class="radio-tag">
+                    <ion-label>
+                        <p style="white-space: normal; font-weight: bold;">วันอังคาร, 1 - วันศุกร์, 6 ส.ค. 2017 ฟรี</p>
+                        <p style="white-space: normal;">ส่งแบบธรรมดา</p>
+                    </ion-label>
+                    <ion-radio value="1"></ion-radio>
+                </ion-item>
+            </ion-col>-->
+        </ion-row>
+
+    </ion-list>
+</ion-grid>
+<ion-grid>
+    <ion-row>
+        <ion-col>
+            <h3>
+                รวม
+            </h3>
+        </ion-col>
+        <ion-col text-right>
+            <h3>
+                {{datapayment.total}} ฿
+            </h3>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+<button ion-button full color="warning" icon-left (click)="gotopayment()">
+        ชำระเงิน
+      </button>

@@ -1,0 +1,44 @@
+{
+    "payment": [
+        {
+            "type": "credit",
+            "img": "./assets/images/payment/card.png",
+            "counterservice": null
+        },
+        {
+            "type": "delivery",
+            "img": "./assets/images/payment/cashondelivery.png",
+            "counterservice": null
+        },
+        {
+            "type": "counterservice",
+            "img": "./assets/images/payment/payment-ion.png",
+            "counterservice": [
+                {
+                    "name": "7-11",
+                    "img": "./assets/images/payment/7-11.jpg"
+                },
+                {
+                    "name": "Big C",
+                    "img": "./assets/images/payment/big-c.jpg"
+                },
+                {
+                    "name": "Pay@Post",
+                    "img": "./assets/images/payment/logo-pay-at-post.png"
+                },
+                {
+                    "name": "FamilyMart",
+                    "img": "./assets/images/payment/FamilyMart.JPG"
+                },
+                {
+                    "name": "Mpay",
+                    "img": "./assets/images/payment/m-pay.jpg"
+                },
+                {
+                    "name": "Lotus",
+                    "img": "./assets/images/payment/main-logo.png"
+                }
+            ]
+        }
+    ]
+}

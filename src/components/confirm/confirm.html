@@ -1,4 +1,75 @@
 <!-- Generated template for the ConfirmComponent component -->
-<div>
-  {{text}}
+<ion-list no-lines>
+    <ion-item>
+        <p>มูลค่าสินค้า</p>
+        <p item-end>299 บาท</p>
+    </ion-item>
+    <ion-item>
+        <p>ค่าธรรมเนียมการจัดส่งสินค้า</p>
+        <p item-end>ฟรี</p>
+    </ion-item>
+    <ion-row>
+        <ion-col col-8>
+            <ion-item>
+                <ion-input type="text" placeholder="ใส่โค้ดส่วนลดตรงนี้"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <button ion-button block color="warning">ยืนยัน</button>
+        </ion-col>
+    </ion-row>
+    <ion-item>
+        <p><b>ยอดสุทธิ (รวมภาษีมูลค่าเพิ่ม)</b></p>
+        <p item-end><b>309 บาท</b></p>
+    </ion-item>
+</ion-list>
+<ion-row>
+    <ion-col col-12>
+        <button ion-button block color="warning" (click)="placeorder()">สั่งสินค้า</button>
+    </ion-col>
+</ion-row>
+<ion-item-group>
+    <ion-item-divider color="light"><b>รายการ</b></ion-item-divider>
+</ion-item-group>
+<div class="list-mini">
+    <ion-list>
+        <ion-item *ngFor="let i of [1]">
+            <ion-row>
+                <ion-col col-12>
+                    <p>ร้านเสื้อมือสอง</p>
+                </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col no-padding width-20 class="item-avatar">
+                    <preload-image class="avatar-image" [ratio]="{w:1, h:1}" src="assets/images/products/p7.png"></preload-image>
+                </ion-col>
+                <ion-col no-padding width-60 class="white-space">
+                    <h3 class="item-title">เสื้อยีนส์</h3>
+                    <p class="item-description">จำนวน: 1</p>
+                </ion-col>
+                <ion-col no-padding width-20>
+                    <p>299 บาท</p>
+                </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col padding width-100 text-center class="ion-col-deilvery">
+                    <p>วันจันทร์, 3 - วันศุกร์, 7 ส.ค. 2017</p>
+                    <p>ส่งแบบธรรมดา</p>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+    <ion-row>
+        <p>ที่อยู่จัดส่ง</p>
+        <ion-col col-12>
+            <p class="review-address"><b>Theerasak Tubrit</b></p>
+            <p class="review-address">55/7 หมู่11 ถ.ลำลูกกา ลำลูกกา บึงคำพร้อย ปทุมธานี 12150</p>
+            <p class="review-address">โทร : 0894447208 , jigkoh3@gmail.com</p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+            <button ion-button block color="warning" (click)="placeorder()">สั่งสินค้า</button>
+        </ion-col>
+    </ion-row>
 </div>
