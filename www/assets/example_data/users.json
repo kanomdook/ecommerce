@@ -1,0 +1,41 @@
+//Mick Created 18/8/60 12.39 pm.
+[
+    {
+        "_id": {
+            "$oid": "5994125be730751000eae08e"
+        },
+        "created": {
+            "$date": "2017-08-16T09:37:31.391Z"
+        },
+        "displayName": "usertest1 test",
+        "email": "usertest1@x.com",
+        "firstName": "usertest1",
+        "lastName": "test",
+        "password": "aQBLaRa2zMK2msi1TlUMQBnW/aGV/xmw30Uc9XGb7Yilo922xcJ797zDaCLthrSY6gdIJu9FLUI758sgkBK9Xw==",
+        "profileImageURL": "https://d30y9cdsu7xlg0.cloudfront.net/png/17241-200.png",
+        "provider": "local",
+        "roles": [
+            "user"
+        ],
+        "username": "usertest1"
+    },
+    {
+        "_id": {
+            "$oid": "59941324e730751000eae08f"
+        },
+        "created": {
+            "$date": "2017-08-16T09:40:52.161Z"
+        },
+        "displayName": "Theerasak Tubrit",
+        "email": "admin@x.com",
+        "firstName": "Theerasak",
+        "lastName": "Tubrit",
+        "password": "6+MfFha0cO1DVrhYXqbXFpcd7NiF+/RVDcw3pVivoDevz4ifa1FtQP7bOe5C0dfChgbTd4+D4tVL9/Hfs68BXg==",
+        "profileImageURL": "https://d30y9cdsu7xlg0.cloudfront.net/png/17241-200.png",
+        "provider": "local",
+        "roles": [
+            "user"
+        ],
+        "username": "admin"
+    }
+]
