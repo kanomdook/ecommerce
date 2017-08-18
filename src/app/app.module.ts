@@ -98,6 +98,8 @@ import { PaymentComponent } from "../components/payment/payment";
 import { ConfirmComponent } from "../components/confirm/confirm";
 import { ListShopComponent } from "../components/list-shop/list-shop";
 import { ListProductComponent } from "../components/list-product/list-product";
+import { ProductListPage } from "../pages/product-list/product-list";
+import { ShopListPage } from "../pages/shop-list/shop-list";
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -157,7 +159,9 @@ export function createTranslateLoader(http: Http) {
     PaymentComponent,
     ConfirmComponent,
     ListShopComponent,
-    ListProductComponent
+    ListProductComponent,
+    ProductListPage,
+    ShopListPage
   ],
   imports: [
     BrowserModule,
@@ -209,7 +213,9 @@ export function createTranslateLoader(http: Http) {
     CartPage,
     ProductDetailPage,
     ShopPage,
-    CheckoutPage
+    CheckoutPage,
+    ProductListPage,
+    ShopListPage
   ],
   providers: [
     FeedService,
