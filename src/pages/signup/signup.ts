@@ -31,15 +31,36 @@ export class SignupPage {
     this.main_page = { component: TabsNavigationPage };
 
     this.signup = new FormGroup({
+      username: new FormControl('', Validators.required),
+      firstname: new FormControl('', Validators.required),
+      lastname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      password: new FormControl('test', Validators.required),
-      confirm_password: new FormControl('test', Validators.required)
+      tel: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      confirm_password: new FormControl('', Validators.required)
     });
   }
 
-  doSignup(){
-    this.nav.setRoot(this.main_page.component);
+  doSignup() {
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.signup.value.email)) {
+      if (this.signup.value.password.length < 7) {
+        alert('Please input password at less 8 character');
+      } else if (this.signup.value.password !== this.signup.value.confirm_password) {
+        alert("Passwords do not match")
+      } else {
+        this.nav.setRoot(this.main_page.component);
+      }
+    } else {
+      alert('email incorrect')
+    }
+    console.log('DATA REGISTER :' + JSON.stringify(this.signup.value));
+
   }
+
+  // addcomma() {
+  //   return this.signup.value.tel.toString().replace(/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/);
+  // }
 
   doFacebookSignup() {
     this.loading = this.loadingCtrl.create();
@@ -48,20 +69,20 @@ export class SignupPage {
     let env = this;
 
     this.facebookLoginService.getFacebookUser()
-    .then(function(data) {
-       // user is previously logged with FB and we have his data we will let him access the app
-      env.nav.setRoot(env.main_page.component);
-    }, function(error){
-      //we don't have the user data so we will ask him to log in
-      env.facebookLoginService.doFacebookLogin()
-      .then(function(res){
-        env.loading.dismiss();
+      .then(function (data) {
+        // user is previously logged with FB and we have his data we will let him access the app
         env.nav.setRoot(env.main_page.component);
-      }, function(err){
-        console.log("Facebook Login error", err);
-        env.loading.dismiss();
+      }, function (error) {
+        //we don't have the user data so we will ask him to log in
+        env.facebookLoginService.doFacebookLogin()
+          .then(function (res) {
+            env.loading.dismiss();
+            env.nav.setRoot(env.main_page.component);
+          }, function (err) {
+            console.log("Facebook Login error", err);
+            env.loading.dismiss();
+          });
       });
-    });
   }
 
   doTwitterSignup() {
@@ -71,20 +92,20 @@ export class SignupPage {
     let env = this;
 
     this.twitterLoginService.getTwitterUser()
-    .then(function(data) {
-       // user is previously logged with FB and we have his data we will let him access the app
-      env.nav.setRoot(env.main_page.component);
-    }, function(error){
-      //we don't have the user data so we will ask him to log in
-      env.twitterLoginService.doTwitterLogin()
-      .then(function(res){
-        env.loading.dismiss();
+      .then(function (data) {
+        // user is previously logged with FB and we have his data we will let him access the app
         env.nav.setRoot(env.main_page.component);
-      }, function(err){
-        console.log("Facebook Login error", err);
-        env.loading.dismiss();
+      }, function (error) {
+        //we don't have the user data so we will ask him to log in
+        env.twitterLoginService.doTwitterLogin()
+          .then(function (res) {
+            env.loading.dismiss();
+            env.nav.setRoot(env.main_page.component);
+          }, function (err) {
+            console.log("Facebook Login error", err);
+            env.loading.dismiss();
+          });
       });
-    });
   }
 
   doGoogleSignup() {
@@ -94,20 +115,20 @@ export class SignupPage {
     let env = this;
 
     this.googleLoginService.trySilentLogin()
-    .then(function(data) {
-       // user is previously logged with Google and we have his data we will let him access the app
-      env.nav.setRoot(env.main_page.component);
-    }, function(error){
-      //we don't have the user data so we will ask him to log in
-      env.googleLoginService.doGoogleLogin()
-      .then(function(res){
-        env.loading.dismiss();
+      .then(function (data) {
+        // user is previously logged with Google and we have his data we will let him access the app
         env.nav.setRoot(env.main_page.component);
-      }, function(err){
-        console.log("Google Login error", err);
-        env.loading.dismiss();
+      }, function (error) {
+        //we don't have the user data so we will ask him to log in
+        env.googleLoginService.doGoogleLogin()
+          .then(function (res) {
+            env.loading.dismiss();
+            env.nav.setRoot(env.main_page.component);
+          }, function (err) {
+            console.log("Google Login error", err);
+            env.loading.dismiss();
+          });
       });
-    });
   }
 
   showTermsModal() {
