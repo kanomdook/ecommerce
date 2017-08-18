@@ -35,18 +35,25 @@ export class ListingPage {
     this.listingService
       .getData()
       .then(data => {
-        this.listing.banner_image = data.banner_image;
-        this.listing.banner_title = data.banner_title;
-        this.listing.lastvisit = data.lastvisit;
-        this.listing.popularproducts = data.popularproducts;
-        this.listing.popularshops = data.popularshops;
+        //jigkoh3 comment #1
+        // data is same model with property., you not assign data each field.
+        
+        // this.listing.banner_image = data.banner_image;
+        // this.listing.banner_title = data.banner_title;
+        // this.listing.lastvisit = data.lastvisit;
+        // this.listing.popularproducts = data.popularproducts;
+        // this.listing.popularshops = data.popularshops;
+        this.listing = data;
         this.loading.dismiss();
       });
   }
 
-  goToFeed(category: any) {
-    this.nav.push(FeedPage, { category: category });
-  }
+  //jigkoh3 comment #2
+  // fuction not use 
+  
+  // goToFeed(category: any) {
+  //   this.nav.push(FeedPage, { category: category });
+  // }
 
   openProductDetail() {
     this.app.getRootNav().push(ProductDetailPage);
