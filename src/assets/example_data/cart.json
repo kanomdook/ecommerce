@@ -31,7 +31,7 @@
                 }],
                 "issize": true,
                 "size": {
-                    "detail": "detail size",
+                    "detail": "US",
                     "sizedetail": [{
                         "name": "S",
                         "qty": 1

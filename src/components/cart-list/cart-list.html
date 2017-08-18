@@ -4,7 +4,7 @@
       <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="data.product.img[0].url"></preload-image>
     </ion-avatar>
     <h2 class="item-title">{{data.product.name}}</h2>
-    <p class="item-description" *ngIf="data.product.issize"><b> Size : {{data.product.size.desc}} - {{data.product.size.sizedetail[0].name}}</b></p>
+    <p class="item-description" *ngIf="data.product.issize"><b> Size : {{data.product.size.detail}} - {{data.product.size.sizedetail[0].name}}</b></p>
     <p class="item-description"><b>{{data.itemamount}} Baht</b></p>
     <button ion-button icon-only clear color="danger" class="circle-btn" (click)="favoriteItem(data)"> 
       <ion-icon name="md-heart-outline"></ion-icon>
