@@ -105,7 +105,6 @@ import { ShoplistService } from "../pages/shop-list/shop-list.service";
 import { ProductListPage } from "../pages/product-list/product-list";
 import { ProductlistService } from "../pages/product-list/product-list.service";
 import { SettingsService } from "../pages/settings/setting.service";
-
 import {CheckoutService} from "../pages/checkout/checkoutservice";
 
 export function createTranslateLoader(http: Http) {
