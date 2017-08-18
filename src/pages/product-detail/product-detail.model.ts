@@ -88,6 +88,6 @@ export class RelationProductsModel {
 }
 ////////////////to use/////////////////////
 export class ProductModel {
-    product: Array<ProductItemsModel>;
+    product: ProductItemsModel;
 }
 ///////////////////////////////////////////

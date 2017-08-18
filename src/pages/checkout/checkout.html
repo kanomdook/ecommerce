@@ -6,28 +6,13 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>checkout</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>checkout</ion-title>
+  </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-segment [(ngModel)]="testing" class="forms-examples-segment">
-        <ion-segment-button value="address">ค่าซื้อขั้นต่ำ</ion-segment-button>
-        <ion-segment-button value="payment">ชำระเงิน</ion-segment-button>
-        <ion-segment-button value="confirm">รีวิว</ion-segment-button>
-    </ion-segment>
-    <ion-list padding *ngIf="testing==='address'" ngSelected="selected">
-        <shipping></shipping>
-    </ion-list>
-    <ion-list padding *ngIf="testing==='payment'">
-        <payment></payment>
-    </ion-list>
-    <ion-list padding *ngIf="testing==='confirm'">
-        <confirm></confirm>
-    </ion-list>
-
 
 </ion-content>
