@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ShopList } from "./list-shop.model";
 
 /**
  * Generated class for the ListShopComponent component.
@@ -12,11 +13,11 @@ import { Component } from '@angular/core';
 })
 export class ListShopComponent {
 
-  text: string;
+  @Input() inputshop: ShopList;
 
   constructor() {
     console.log('Hello ListShopComponent Component');
-    this.text = 'Hello World';
+    // this.text = 'Hello World';
   }
 
 }
