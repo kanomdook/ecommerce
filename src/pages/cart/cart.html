@@ -9,49 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item class="notification-item">
-      <ion-avatar item-left>
-        <preload-image class="user-image" [ratio]="{w:1, h:1}" src="http://lovesneaker.com/12228-thickbox_default/-nike-flyknit-racer-nike-10-0027.jpg"></preload-image>
-      </ion-avatar>
-      <h2 class="item-title">ACER Aspire VX5-591G-782Z</h2>
-      <p class="item-description">ACER Aspire VX5-591G-782Z i7-7700HQ/4GB/1TB/GTX 1050 4GB/15.6" - Black Adapter</p>
-      <p class="item-description">31,000 Bath</p>
-      <p>
-        <button ion-button icon-only color="danger" class="circle-btn">
-        <ion-icon name="remove"></ion-icon>
-      </button>
-        <span class="tb">1</span>
-        <button ion-button icon-only color="btn" class="circle-btn">
-        <ion-icon name="add"></ion-icon>
-      </button>
-      
-      <button ion-button icon-only color="dark" class="circle-btn">
-        <ion-icon name="trash"></ion-icon>
-      </button>
-      </p>
-    </ion-item>
-    <ion-item class="notification-item">
-      <ion-avatar item-left>
-        <preload-image class="user-image" [ratio]="{w:4, h:4}" src="http://www.9digits.com/wp-content/uploads/2016/01/Nike-Air-Zoom-Pegasus-31-Mens-Running-Shoe-652925_801_C_PREM.jpg"></preload-image>
-      </ion-avatar>
-      <h2 class="item-title">Dell Inspiron 7566-W56755716 </h2>
-      <p class="item-description">Dell Inspiron 7566-W56755716 i7-6700HQ/8GB/500GB+SSD 128GB/GTX960M 4GB/WINDOWS 10 - Black</p>
-      <p class="item-description">41,990 Bath</p>
-      <p>
-        <button ion-button icon-only color="danger" class="circle-btn">
-        <ion-icon name="remove"></ion-icon>
-      </button>
-        <span class="tb">1</span>
-        <button ion-button icon-only color="btn" class="circle-btn">
-        <ion-icon name="add"></ion-icon>
-      </button>
-
-      <button ion-button icon-only color="dark" class="circle-btn">
-        <ion-icon name="trash"></ion-icon>
-      </button>
-         
-      </p>
-    </ion-item>
+    <cart-list [dataCartList]=""></cart-list>
   </ion-list>
 </ion-content>
 
@@ -59,7 +17,7 @@
   <ion-toolbar color="btn">
     <div style="text-align: center;">
       <ion-buttons>
-        <button ion-button icon-left (click)="goToSchedulePage()">
+        <button ion-button icon-left (click)="onPayment()">
         <ion-icon name="cash"></ion-icon>PayMent
       </button>
       </ion-buttons>

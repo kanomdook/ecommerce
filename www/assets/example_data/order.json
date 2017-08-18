@@ -1,0 +1,240 @@
+<<<<<<< HEAD
+{
+    "order": {
+        "items": {
+            "products": [
+                {
+                    "product": {
+                        "id": "product001",
+                        "name": "NIKE WOMEN 3 TEMPO MODERN EMBOSSED SHORT VOLT 719760-702 S-XL 11' - intl",
+                        "detail": "All item(s) will be shipped with Registered Air Mail and provide Track No. to check on the website of DHL.",
+                        "unitprice": 100,
+                        "img": [
+                            {
+                                "url": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
+                                "id": "img001"
+                            },
+                            {
+                                "url": "https://i.ebayimg.com/images/g/cBQAAOSwo4pYfYuN/s-l500.jpg",
+                                "id": "img002"
+                            }
+                        ],
+                        "promotion": [
+                            {
+                                "name": "promotion 1",
+                                "desc": "promotion 1",
+                                "code": "promotion 1"
+                            },
+                            {
+                                "name": "promotion 2",
+                                "desc": "promotion 2",
+                                "code": "promotion 2"
+                            }
+                        ],
+                        "qty": 40,
+                        "size": {
+                            "issize": true,
+                            "detail": {
+                                "desc": "detail size",
+                                "sizedetail": [
+                                    {
+                                        "name": "S",
+                                        "qty": 10
+                                    }
+                                ]
+                            }
+                        },
+                        "payment": [
+                            {
+                                "payment": "payment001"
+                            }
+                        ],
+                        "shipping": [
+                            {
+                                "shipping": "shipping001"
+                            }
+                        ],
+                        "shop": {
+                            "shop": "shop001"
+                        }
+                    },
+                    "qty": 2,
+                    "itemamount": 200
+                }
+            ],
+            "amount": 500
+        },
+        "user": "userxxx",
+        "address": [
+            {
+                "address": "55/7 หมู่11",
+                "district": "บึงคำพร้อย",
+                "subdistrict": "ลำลูกกา",
+                "province": "ปทุมธานี",
+                "postcode": "12150",
+                "detail": "ตรงข้ามโฮมโปร"
+            }
+        ],
+        "promotioncode": {
+            "id": "code001",
+            "name": "ลดท้าลมร้อน",
+            "code": "codehot001",
+            "startdate": "2017-08-10",
+            "enddate": "2017-08-30",
+            "status": [
+                {
+                    "status": "activate"
+                },
+                {
+                    "status": "inactivate"
+                }
+            ],
+            "log": [
+                {
+                    "user": "xxx",
+                    "date": "2017-08-10T06:25:00"
+                }
+            ],
+            "detail": "Super Summer Sale ลดท้าลมร้อน",
+            "discounttype": {
+                "discounttype": [
+                    {
+                        "type": "Baht"
+                    },
+                    {
+                        "type": "Percent"
+                    }
+                ],
+                "value": 50
+            },
+            "shop": "shop001"
+        },
+        "totalamount": 250,
+        "status": [
+            {
+                "name": "paid",
+                "date": "2017-08-10T06:25:00"
+            }
+        ]
+    }
+=======
+{
+    "order": {
+        "items": {
+            "products": [
+                {
+                    "product": {
+                        "id": "product001",
+                        "name": "NIKE WOMEN 3 TEMPO MODERN EMBOSSED SHORT VOLT 719760-702 S-XL 11' - intl",
+                        "detail": "All item(s) will be shipped with Registered Air Mail and provide Track No. to check on the website of DHL.",
+                        "unitprice": 100,
+                        "img": [
+                            {
+                                "url": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
+                                "id": "img001"
+                            },
+                            {
+                                "url": "https://i.ebayimg.com/images/g/cBQAAOSwo4pYfYuN/s-l500.jpg",
+                                "id": "img002"
+                            }
+                        ],
+                        "promotion": [
+                            {
+                                "name": "promotion 1",
+                                "desc": "promotion 1",
+                                "code": "promotion 1"
+                            },
+                            {
+                                "name": "promotion 2",
+                                "desc": "promotion 2",
+                                "code": "promotion 2"
+                            }
+                        ],
+                        "qty": 40,
+                        "size": {
+                            "issize": true,
+                            "detail": {
+                                "desc": "detail size",
+                                "sizedetail": [
+                                    {
+                                        "name": "S",
+                                        "qty": 10
+                                    }
+                                ]
+                            }
+                        },
+                        "payment": [
+                            {
+                                "payment": "payment001"
+                            }
+                        ],
+                        "shipping": [
+                            {
+                                "shipping": "shipping001"
+                            }
+                        ],
+                        "shop": {
+                            "shop": "shop001"
+                        }
+                    },
+                    "qty": 2,
+                    "itemamount": 200
+                }
+            ],
+            "amount": 500
+        },
+        "user": "userxxx",
+        "address": [
+            {
+                "address": "55/7 หมู่11",
+                "district": "บึงคำพร้อย",
+                "subdistrict": "ลำลูกกา",
+                "province": "ปทุมธานี",
+                "postcode": "12150",
+                "detail": "ตรงข้ามโฮมโปร"
+            }
+        ],
+        "promotioncode": {
+            "id": "code001",
+            "name": "ลดท้าลมร้อน",
+            "code": "codehot001",
+            "startdate": "2017-08-10",
+            "enddate": "2017-08-30",
+            "status": [
+                {
+                    "status": "activate"
+                },
+                {
+                    "status": "inactivate"
+                }
+            ],
+            "log": [
+                {
+                    "user": "xxx",
+                    "date": "2017-08-10T06:25:00"
+                }
+            ],
+            "detail": "Super Summer Sale ลดท้าลมร้อน",
+            "discounttype": {
+                "discounttype": [
+                    {
+                        "type": "Baht"
+                    },
+                    {
+                        "type": "Percent"
+                    }
+                ],
+                "value": 50
+            },
+            "shop": "shop001"
+        },
+        "totalamount": 250,
+        "status": [
+            {
+                "name": "paid",
+                "date": "2017-08-10T06:25:00"
+            }
+        ]
+    }
+>>>>>>> dd4c965ed3a774d698254ed3785c2fef1a25d43f
+}
