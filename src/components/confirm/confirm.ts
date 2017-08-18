@@ -16,7 +16,7 @@ export class ConfirmComponent {
 
   constructor() {
     console.log('Hello ConfirmComponent Component');
-    this.text = 'Hello World';
+    this.text = 'Confirm';
   }
 
 }

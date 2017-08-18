@@ -16,7 +16,7 @@ export class PaymentComponent {
 
   constructor() {
     console.log('Hello PaymentComponent Component');
-    this.text = 'Hello World';
+    this.text = 'Payment';
   }
 
 }
