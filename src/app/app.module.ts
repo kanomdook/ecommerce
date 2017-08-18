@@ -99,6 +99,7 @@ import { PaymentComponent } from "../components/payment/payment";
 import { ConfirmComponent } from "../components/confirm/confirm";
 import { ListShopComponent } from "../components/list-shop/list-shop";
 import { ListProductComponent } from "../components/list-product/list-product";
+import { SettingsService } from "../pages/settings/setting.service";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -224,6 +225,7 @@ export function createTranslateLoader(http: Http) {
     ProductService,
     ShopService,
     LoginService,
+    SettingsService,
 
     FacebookLoginService,
     GoogleLoginService,
