@@ -103,6 +103,7 @@ import { ShopListPage } from "../pages/shop-list/shop-list";
 import { ShoplistService } from "../pages/shop-list/shop-list.service";
 import { ProductListPage } from "../pages/product-list/product-list";
 import { ProductlistService } from "../pages/product-list/product-list.service";
+import { SettingsService } from "../pages/settings/setting.service";
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -255,7 +256,8 @@ export function createTranslateLoader(http: Http) {
     EmailComposer,
     CartService,
     ShoplistService,
-    ProductlistService
+    ProductlistService,
+    SettingsService
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

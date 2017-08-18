@@ -9,8 +9,8 @@ import { WalkthroughPage } from '../walkthrough/walkthrough';
 
 import 'rxjs/Rx';
 
-import { ProfileModel } from '../profile/profile.model';
-import { ProfileService } from '../profile/profile.service';
+import { ProfileModel } from './settings-model';
+import { SettingsService } from './setting.service';
 
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from "../../providers/language/language.service";
@@ -39,7 +39,7 @@ export class SettingsPage {
     public loadingCtrl: LoadingController,
     public translate: TranslateService,
     public languageService: LanguageService,
-    public profileService: ProfileService,
+    public settingService: SettingsService,
     public appRate: AppRate,
     public imagePicker: ImagePicker,
     public cropService: Crop,
@@ -50,9 +50,9 @@ export class SettingsPage {
     this.languages = this.languageService.getLanguages();
 
     this.settingsForm = new FormGroup({
-      name: new FormControl(),
-      location: new FormControl(),
-      description: new FormControl(),
+      firstName: new FormControl(),
+      lastName: new FormControl(),
+      email: new FormControl(),
       currency: new FormControl(),
       weather: new FormControl(),
       notifications: new FormControl(),
@@ -62,16 +62,18 @@ export class SettingsPage {
 
   ionViewDidLoad() {
     this.loading.present();
-    this.profileService.getData().then(data => {
-      this.profile.user = data.user;
+    this.settingService.getData().then(data => {
+      this.profile = data;
+
+      // this.profile.user = data.user;
 
       // setValue: With setValue, you assign every form control value at once by passing in a data object whose properties exactly match the form model behind the FormGroup.
       // patchValue: With patchValue, you can assign values to specific controls in a FormGroup by supplying an object of key/value pairs for just the controls of interest.
       // More info: https://angular.io/docs/ts/latest/guide/reactive-forms.html#!#populate-the-form-model-with-_setvalue_-and-_patchvalue_
       this.settingsForm.patchValue({
-        name: data.user.name,
-        location: data.user.location,
-        description: data.user.about,
+        firstName: data.user.firstName,
+        lastName: data.user.lastName,
+        email: data.user.email,
         currency: 'dollar',
         weather: 'fahrenheit',
         notifications: true,
@@ -80,9 +82,9 @@ export class SettingsPage {
 
       this.loading.dismiss();
 
-      this.settingsForm.get('language').valueChanges.subscribe((lang) => {
-        this.setLanguage(lang);
-      });
+      // this.settingsForm.get('language').valueChanges.subscribe((lang) => {
+      //   this.setLanguage(lang);
+      // });
     });
   }
 
@@ -138,8 +140,8 @@ export class SettingsPage {
               for (var i = 0; i < results.length; i++) {
                 this.cropService.crop(results[i], { quality: 75 }).then(
                   newImage => {
-                    this.profileService.setUserImage(newImage);
-                    this.profile.user.image = newImage;
+                    this.settingService.setUserImage(newImage);
+                    this.profile.user.profileImageURL = newImage;
                   },
                   error => console.error("Error cropping image", error)
                 );
