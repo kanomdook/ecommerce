@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Shop Detail</ion-title>
+    <ion-title>{{shopDetail.title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="contact-card-content">
   <topbar [dataTopBar]="shop"></topbar>
-  
+
   <div class="button-bar">
     <button ion-button primary>
     <ion-icon name="call"></ion-icon>
@@ -32,5 +32,5 @@
     </ion-item>
   </ion-list>
   <h4 class="categories-title">{{'สินค้า'}} <span class="see-all">see all</span></h4>
-  <data-scroll-x [dataListX]="shop.products"></data-scroll-x>  
+  <data-scroll-x [dataListX]="shop.products"></data-scroll-x>
 </ion-content>

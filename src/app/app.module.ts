@@ -49,6 +49,7 @@ import { FacebookLoginService } from '../pages/facebook-login/facebook-login.ser
 import { GoogleLoginService } from '../pages/google-login/google-login.service';
 import { TwitterLoginService } from '../pages/twitter-login/twitter-login.service';
 import { GoogleMapsService } from '../pages/maps/maps.service';
+import { LoginService } from '../pages/login/login.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -99,9 +100,14 @@ import { ConfirmComponent } from "../components/confirm/confirm";
 import { ListShopComponent } from "../components/list-shop/list-shop";
 import { ListProductComponent } from "../components/list-product/list-product";
 import { CartService } from "../pages/cart/cart.service";
+import { ShopListPage } from "../pages/shop-list/shop-list";
+import { ShoplistService } from "../pages/shop-list/shop-list.service";
+import { ProductListPage } from "../pages/product-list/product-list";
+import { ProductlistService } from "../pages/product-list/product-list.service";
+import { SettingsService } from "../pages/settings/setting.service";
 
 export function createTranslateLoader(http: Http) {
-	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 
@@ -135,9 +141,9 @@ export function createTranslateLoader(http: Http) {
     GoogleLoginPage,
     ContactCardPage,
     TwitterLoginPage,
-		AdsPage,
-		FormValidationsPage,
-		VideoPlaylistPage,
+    AdsPage,
+    FormValidationsPage,
+    VideoPlaylistPage,
     CartPage,
     PreloadImage,
     BackgroundImage,
@@ -158,21 +164,23 @@ export function createTranslateLoader(http: Http) {
     PaymentComponent,
     ConfirmComponent,
     ListShopComponent,
-    ListProductComponent
+    ListProductComponent,
+    ShopListPage,
+    ProductListPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-		TranslateModule.forRoot({
-    loader: {
+    TranslateModule.forRoot({
+      loader: {
         provide: TranslateLoader,
-      	useFactory: (createTranslateLoader),
+        useFactory: (createTranslateLoader),
         deps: [Http]
-		    }
-		}),
-		VideoPlayerModule,
-		ValidatorsModule
+      }
+    }),
+    VideoPlayerModule,
+    ValidatorsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -204,13 +212,15 @@ export function createTranslateLoader(http: Http) {
     GoogleLoginPage,
     ContactCardPage,
     TwitterLoginPage,
-		AdsPage,
-		FormValidationsPage,
+    AdsPage,
+    FormValidationsPage,
     VideoPlaylistPage,
     CartPage,
     ProductDetailPage,
     ShopPage,
-    CheckoutPage
+    CheckoutPage,
+    ShopListPage,
+    ProductListPage
   ],
   providers: [
     FeedService,
@@ -228,10 +238,10 @@ export function createTranslateLoader(http: Http) {
     GoogleLoginService,
     TwitterLoginService,
     GoogleMapsService,
-		LanguageService,
+    LanguageService,
 
-	  SplashScreen,
-	  StatusBar,
+    SplashScreen,
+    StatusBar,
     SocialSharing,
     NativeStorage,
     InAppBrowser,
@@ -240,13 +250,17 @@ export function createTranslateLoader(http: Http) {
     Keyboard,
     Geolocation,
     TwitterConnect,
-		AdMobFree,
-		AppRate,
-		ImagePicker,
-		Crop,
+    AdMobFree,
+    AppRate,
+    ImagePicker,
+    Crop,
     EmailComposer,
-    CartService
+    CartService,
+    LoginService,
+    ShoplistService,
+    ProductlistService,
+    SettingsService
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule { }
