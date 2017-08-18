@@ -1,3 +1,10 @@
 cart-list {
-
+    .qty-btn {
+        position: fixed;
+        right: 1px;
+        bottom: 1px;
+    }
+    .qty {
+        font-size: 150% !important;
+    }
 }

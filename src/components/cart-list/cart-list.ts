@@ -1,27 +1,36 @@
-import { Component, Input } from '@angular/core';
-import { DataCartList } from "./cart-list.model";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CartModel } from "./cart-list.model";
 
 @Component({
   selector: 'cart-list',
   templateUrl: 'cart-list.html'
 })
 export class CartListComponent {
-  @Input() dataCartList: DataCartList;  
+  @Input('data') dataCartList: CartModel = new CartModel();;
+  @Output() favorite = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() add = new EventEmitter();
+  @Output() remove = new EventEmitter();
 
   constructor() {
-    
-  }
-
-  decrease(){
 
   }
 
-  increase(){
+  favoriteItem(item) {
+    this.favorite.emit(item);
+  }
+
+  deleteItem(item) {
+    this.delete.emit(item);
+  }
+
+  addQtyItem(item) {
+    this.add.emit(item);
 
   }
 
-  deleteItem(){
-    
+  removeQtyItem(item) {
+    this.remove.emit(item);
   }
 
 }
