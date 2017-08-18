@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { paymentModel } from './checkout.model';
 import { confirmModel } from './checkout.model';
 import { shippingModel } from './checkout.model';
+import { ListingPage } from '../listing/listing';
 
 import { CheckoutService } from './checkoutservice';
 
@@ -59,6 +60,14 @@ export class CheckoutPage {
   shippingevent(event) {
     // alert(event);
     this.testing = event;
+  }
+
+  paymentgateway(event) {
+    this.testing = event;
+  }
+
+  save(event) {
+    this.navCtrl.setRoot(ListingPage);
   }
 
 }

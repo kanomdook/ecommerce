@@ -1,20 +1,20 @@
 <!-- Generated template for the PaymentComponent component -->
 <ion-grid padding class="forms-examples-segment">
-    <ion-list class="radio-tags" radio-group [(ngModel)]="payment">
+    <ion-list class="radio-tags" radio-group [(ngModel)]="payment2">
 
         <ion-row>
-            <ion-col col-4>
+            <ion-col col-4 *ngFor="let payment of paymentgateway.payment">
                 <ion-item class="radio-tag">
                     <ion-label>
 
-                        <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/card.png"></preload-image>
-                        <p style="white-space: normal;">บัตรเครดิตหรือเดบิต</p>
+                        <preload-image [ratio]="{w:1, h:1}" src="{{payment.img}}"></preload-image>
+                        <p style="white-space: normal;">{{payment.type}}</p>
 
                     </ion-label>
-                    <ion-radio value="credit"></ion-radio>
+                    <ion-radio [value]="payment.type"></ion-radio>
                 </ion-item>
             </ion-col>
-            <ion-col col-4>
+            <!--<ion-col col-4>
                 <ion-item class="radio-tag">
                     <ion-label>
                         <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/cashondelivery.png"></preload-image>
@@ -31,14 +31,13 @@
                     </ion-label>
                     <ion-radio value="store"></ion-radio>
                 </ion-item>
-            </ion-col>
+            </ion-col>-->
         </ion-row>
 
 
     </ion-list>
 </ion-grid>
-
-<ion-grid padding class="forms-examples-segment" *ngIf="payment === 'credit'">
+<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'credit'">
     <ion-row>
         <ion-col col-12>
             <ion-list>
@@ -84,7 +83,7 @@
       </button>
 </ion-grid>
 
-<ion-grid padding class="forms-examples-segment" *ngIf="payment === 'deliver'">
+<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'delivery'">
     <ion-row>
         <ion-col col-12>การชำระเงินผ่านระบบชำระเงินปลายทาง. ชำระเงินโดยตรงกับพนักงานส่งของในระหว่างการจัดส่งได้ทันที</ion-col>
     </ion-row>
@@ -93,24 +92,24 @@
       </button>
 </ion-grid>
 
-<ion-grid padding class="forms-examples-segment" *ngIf="payment === 'store'">
+<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'counterservice'">
     <ion-row>
         <ion-col col-12>
             <ion-list class="radio-tags" radio-group [(ngModel)]="store">
                 <ion-grid>
                     <ion-row>
-                        <ion-col col-4>
+                        <ion-col col-4 *ngFor="let counter of paymentgateway.counterservice">
                             <ion-item class="radio-tag">
                                 <ion-label>
 
-                                    <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/7-11.jpg"></preload-image>
-                                    <p class="font-custom">ร้านเซเว่น อีเลฟเว่น</p>
+                                    <preload-image [ratio]="{w:1, h:1}" src="{{counter.img}}"></preload-image>
+                                    <p class="font-custom">{{counter.name}}</p>
 
                                 </ion-label>
-                                <ion-radio value="711"></ion-radio>
+                                <ion-radio [value]="counter.name"></ion-radio>
                             </ion-item>
                         </ion-col>
-                        <ion-col col-4>
+                        <!--<ion-col col-4>
                             <ion-item class="radio-tag">
                                 <ion-label>
                                     <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/big-c.jpg"></preload-image>
@@ -127,10 +126,10 @@
                                 </ion-label>
                                 <ion-radio value="pay"></ion-radio>
                             </ion-item>
-                        </ion-col>
+                        </ion-col>-->
                     </ion-row>
 
-                    <ion-row>
+                    <!--<ion-row>
                         <ion-col col-4>
                             <ion-item class="radio-tag">
                                 <ion-label>
@@ -160,7 +159,7 @@
                                 <ion-radio value="lotus"></ion-radio>
                             </ion-item>
                         </ion-col>
-                    </ion-row>
+                    </ion-row>-->
                 </ion-grid>
             </ion-list>
         </ion-col>

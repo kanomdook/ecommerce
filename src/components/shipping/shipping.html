@@ -111,7 +111,7 @@
     </ion-row>
     <ion-row>
         <ion-col col-5 class="horizontal-item">
-            <!--<preload-image [ratio]="{w:1, h:1}" src="item.image"></preload-image>-->
+            <preload-image [ratio]="{w:1, h:1}" src="{{item.img}}"></preload-image>
         </ion-col>
         <ion-col col-7 class="horizontal-item">
             <p class="txt-centr">{{item.name}}</p>
@@ -124,15 +124,15 @@
     </p>
     <ion-list class="radio-tags" radio-group>
 
-        <ion-row *ngFor="let itm of item.choice">
-            <ion-col col-6 class="horizontal-item">
+        <ion-row>
+            <ion-col col-6 class="horizontal-item" *ngFor="let itm of item.choice">
                 <ion-item class="radio-tag">
                     <ion-label>
                         <p style="white-space: normal; font-weight: bold;">{{itm.discription}}</p>
                         <p style="white-space: normal;">{{itm.type}}</p>
 
                     </ion-label>
-                    <ion-radio value="any"></ion-radio>
+                    <ion-radio [value]="itm.type"></ion-radio>
                 </ion-item>
             </ion-col>
             <!--<ion-col col-6 class="horizontal-item">

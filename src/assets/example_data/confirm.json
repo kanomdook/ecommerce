@@ -3,18 +3,19 @@
         "price": 400,
         "total": 400,
         "amount": 400,
+        "deliveryprice": 0,
         "shippingtype": "credit",
-        "products": [
-            {
-                "name": "เสื้อยืน",
-                "qty": 2,
-                "price": 200,
-                "choice": {
-                    "discription": "วันอังคาร, 1 - วัน อังคาร, 2 ส.ค. 2017 ฟรี",
-                    "type": "ส่งแบบส่งด่วน"
-                }
+        "products": [{
+            "shop": "ร้านขายเสื้อมือสอง",
+            "name": "เสื้อยืน",
+            "qty": 2,
+            "price": 200,
+            "img": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
+            "choice": {
+                "discription": "วันอังคาร, 1 - วัน อังคาร, 2 ส.ค. 2017 ฟรี",
+                "type": "ส่งแบบส่งด่วน"
             }
-        ],
+        }],
         "customer": {
             "displayName": "Customer displayName",
             "address": {
@@ -24,7 +25,8 @@
                 "province": "ปทุมธานี",
                 "postcode": "12150"
             },
-            "tel": "0999999999"
+            "tel": "0999999999",
+            "email": "jigkoh3@gmail.com"
         }
     }
 }

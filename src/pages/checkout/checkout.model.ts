@@ -1,10 +1,11 @@
 export class paymentModel {
     payment: Array<payment>;
+    counterservice: Array<counter>;
 }
 
 export class payment {
     type: string;
-    counterservice: Array<counter>;
+    img: string;
 }
 
 export class counter {
@@ -16,6 +17,8 @@ export class confirmModel {
     price: number;
     total: number;
     amount: number;
+    shop: string;
+    deliveryprice: number;
     shippingtype: string;
     customer: customer = new customer();
     products: Array<product>;
@@ -37,6 +40,7 @@ export class address {
 
 export class product {
     name: string;
+    img: string;
     qty: number;
     price: number;
     choice: Array<choice>;
