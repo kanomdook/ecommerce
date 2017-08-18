@@ -37,25 +37,25 @@ export class LoginPage {
 
     this.login = new FormGroup({
       email: new FormControl('', Validators.required),
-      password: new FormControl('test', Validators.required)
+      password: new FormControl('', Validators.required)
     });
   }
 
   doLogin() {
     this.loading = this.loadingCtrl.create();
-    this.loginService.logingin(this.login).then((user) => {
-      this.datauser = user;
-      if (this.login.value.email == this.datauser.email && this.login.value.password == this.datauser.password) {
-        this.loading.dismiss();
-        this.nav.setRoot(this.main_page.component);
-      } else {
-        this.loading.dismiss();
-        alert("username or password is not correct");
-      }
+    // this.loginService.logingin(this.login).then((user) => {
+    //   this.datauser = user;
+    //   if (this.login.value.email == this.datauser.email && this.login.value.password == this.datauser.password) {
+    this.loading.dismiss();
+    this.nav.setRoot(this.main_page.component);
+    //   } else {
+    //     this.loading.dismiss();
+    //     alert("username or password is not correct");
+    //   }
 
-    }, (error) => {
-      console.error(error);
-    });
+    // }, (error) => {
+    //   console.error(error);
+    // });
 
     // this.nav.setRoot(this.main_page.component);
   }

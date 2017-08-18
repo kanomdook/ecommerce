@@ -100,6 +100,11 @@ import { ConfirmComponent } from "../components/confirm/confirm";
 import { ListShopComponent } from "../components/list-shop/list-shop";
 import { ListProductComponent } from "../components/list-product/list-product";
 import { CartService } from "../pages/cart/cart.service";
+import { ShopListPage } from "../pages/shop-list/shop-list";
+import { ShoplistService } from "../pages/shop-list/shop-list.service";
+import { ProductListPage } from "../pages/product-list/product-list";
+import { ProductlistService } from "../pages/product-list/product-list.service";
+import { SettingsService } from "../pages/settings/setting.service";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -159,7 +164,9 @@ export function createTranslateLoader(http: Http) {
     PaymentComponent,
     ConfirmComponent,
     ListShopComponent,
-    ListProductComponent
+    ListProductComponent,
+    ShopListPage,
+    ProductListPage
   ],
   imports: [
     BrowserModule,
@@ -211,7 +218,9 @@ export function createTranslateLoader(http: Http) {
     CartPage,
     ProductDetailPage,
     ShopPage,
-    CheckoutPage
+    CheckoutPage,
+    ShopListPage,
+    ProductListPage
   ],
   providers: [
     FeedService,
@@ -247,7 +256,10 @@ export function createTranslateLoader(http: Http) {
     Crop,
     EmailComposer,
     CartService,
-    LoginService
+    LoginService,
+    ShoplistService,
+    ProductlistService,
+    SettingsService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

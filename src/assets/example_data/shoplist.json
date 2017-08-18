@@ -1,0 +1,16 @@
+{
+    "title": "Shop List",
+    "shop": [{
+        "name": "Samsung Shop",
+        "img": "https://yt3.ggpht.com/-IzOOKMPWpko/AAAAAAAAAAI/AAAAAAAAAAA/4d9CLR6GoHE/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+    },{
+        "name": "Apple Shop",
+        "img": "http://icons.iconarchive.com/icons/danleech/simple/1024/apple-icon.png"
+    },{
+        "name": "Huawei Shop",
+        "img": "https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/062013/huawei_0.jpg?itok=qzubYt9f"
+    },{
+        "name": "Asus Shop",
+        "img": "http://www.comtradedistribution.com/wp-content/uploads/2015/07/asus-logo.png"
+    }]
+}
