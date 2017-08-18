@@ -102,6 +102,7 @@ import { CartService } from "../pages/cart/cart.service";
 import { ProductListPage } from "../pages/product-list/product-list";
 import { ShopListPage } from "../pages/shop-list/shop-list";
 import { ProductlistService } from "../pages/product-list/product-list.service";
+import { ShoplistService } from "../pages/shop-list/shop-list.service";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -253,7 +254,8 @@ export function createTranslateLoader(http: Http) {
     Crop,
     EmailComposer,
     CartService,
-    ProductlistService
+    ProductlistService,
+    ShoplistService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
