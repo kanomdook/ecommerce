@@ -39,7 +39,7 @@
     "@ngx-translate/core": "6.0.1",
     "@ngx-translate/http-loader": "0.0.3",
     "@types/core-js": "^0.9.41",
-    "@types/googlemaps": "3.25.38",
+    "@types/googlemaps": "^3.25.38",
     "ImagePicker": "git+https://github.com/ionicthemes/ImagePicker.git",
     "angular2-text-mask": "8.0.1",
     "bourbon": "4.2.7",
