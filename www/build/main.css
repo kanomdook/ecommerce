@@ -85526,6 +85526,16 @@ background-image.img-loaded ion-spinner {
   display: none;
 }
 
+cart-list .qty-btn {
+  position: fixed;
+  right: 1px;
+  bottom: 1px;
+}
+
+cart-list .qty {
+  font-size: 150% !important;
+}
+
 counter-input[basic] .counter-inner {
   display: none;
 }
@@ -85740,6 +85750,14 @@ ads-page .ads-footer .remove-ad-button {
   font-weight: 500;
 }
 
+page-cart .color-c {
+  color: #5f5f5f;
+}
+
+page-cart .h2-total {
+  margin: 0px !important;
+}
+
 page-cart .item-title {
   font-weight: bold;
   color: #ae75e7;
@@ -85758,6 +85776,16 @@ page-cart .circle-btn {
 page-cart .item-md ion-avatar {
   min-width: 80px;
   min-height: 80px;
+}
+
+page-cart .content-md {
+  color: #000;
+  background-color: #f7f7f7;
+}
+
+page-cart .content-ios {
+  color: #000;
+  background-color: #f7f7f7;
 }
 
 contact-card-page .contact-card-content .contact-slides {

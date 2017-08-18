@@ -98,6 +98,7 @@ import { PaymentComponent } from "../components/payment/payment";
 import { ConfirmComponent } from "../components/confirm/confirm";
 import { ListShopComponent } from "../components/list-shop/list-shop";
 import { ListProductComponent } from "../components/list-product/list-product";
+import { CartService } from "../pages/cart/cart.service";
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -243,7 +244,8 @@ export function createTranslateLoader(http: Http) {
 		AppRate,
 		ImagePicker,
 		Crop,
-		EmailComposer
+    EmailComposer,
+    CartService
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

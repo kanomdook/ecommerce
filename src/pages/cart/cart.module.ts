@@ -8,6 +8,6 @@ import { CartPage } from './cart';
   ],
   imports: [
     IonicPageModule.forChild(CartPage),
-  ],
+  ]
 })
-export class CartPageModule {}
+export class CartPageModule { }

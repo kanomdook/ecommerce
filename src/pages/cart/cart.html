@@ -1,26 +1,31 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>{{ 'CART' | translate }}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
   <ion-list>
-    <cart-list [dataCartList]=""></cart-list>
+    <cart-list [data]="cartData.products" (favorite)="onFavoriteItem($event)" (delete)="onDeleteItem($event)" (add)="onAddItem($event)"
+      (remove)="onRemoveItem($event)"></cart-list>
   </ion-list>
 </ion-content>
-
 <ion-footer>
-  <ion-toolbar color="btn">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 text-left>
+          <h2 class="h2-total color-c">Total price</h2>
+        </ion-col>
+        <ion-col col-6 text-right>
+          <h2 class="h2-total color-c">{{cartData.amount | number}}</h2>
+          <span class="color-c">* included Vat</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <div style="text-align: center;">
-      <ion-buttons>
-        <button ion-button icon-left (click)="goToSchedulePage()">
+      <button ion-button icon-left full color="btn" (click)="onPayment()">
         <ion-icon name="cash"></ion-icon>PayMent
       </button>
-      </ion-buttons>
     </div>
   </ion-toolbar>
 </ion-footer>
