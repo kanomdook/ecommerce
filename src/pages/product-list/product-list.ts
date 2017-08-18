@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProductlistService } from "./product-list.service";
+import { ProdLists } from "./product-list.model";
 
 /**
  * Generated class for the ProductListPage page.
@@ -14,12 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'product-list.html',
 })
 export class ProductListPage {
+  public Listprod: ProdLists = new ProdLists;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public productlistService: ProductlistService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductListPage');
+    this.productlistService.getData().then(data => {
+      this.Listprod = data;
+    });
   }
 
 }
