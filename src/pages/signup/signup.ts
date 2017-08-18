@@ -58,8 +58,15 @@ export class SignupPage {
 
   }
 
-  // addcomma() {
-  //   return this.signup.value.tel.toString().replace(/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/);
+  // changString(){
+  //   if (this.signup.value.tel ) {
+      
+  //   } else {
+      
+  //   }
+  // }
+  // addplatform() {
+  //    this.signup.value.tel.toString().replace(/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/);
   // }
 
   doFacebookSignup() {
