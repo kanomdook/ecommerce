@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ShopList } from "./list-shop.model";
+import { ShopPage } from "../../pages/shop/shop";
+import { NavController } from "ionic-angular";
 
 /**
  * Generated class for the ListShopComponent component.
@@ -12,11 +15,17 @@ import { Component } from '@angular/core';
 })
 export class ListShopComponent {
 
-  text: string;
+  @Input() inputshop: ShopList;
 
-  constructor() {
+  constructor(
+    public nav: NavController
+  ) {
     console.log('Hello ListShopComponent Component');
-    this.text = 'Hello World';
+    // this.text = 'Hello World';
+  }
+
+  gotoShopDetail() {
+    this.nav.push(ShopPage);
   }
 
 }

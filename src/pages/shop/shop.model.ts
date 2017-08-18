@@ -40,6 +40,7 @@ export class ProductsModel {
 }
 ////////////////to use/////////////////////
 export class ShopModel {
-    shop: Array<ShopItemsModel>;
+    shop: ShopItemsModel = new ShopItemsModel();
+    title: string;
 }
 ///////////////////////////////////////////

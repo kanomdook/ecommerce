@@ -18,7 +18,7 @@ export class ShippingComponent {
 
   constructor() {
     console.log('Hello ShippingComponent Component');
-    this.text = 'Shipping';
+    this.text = 'Hello World';
   }
 
   gotopayment(){

@@ -1,18 +1,31 @@
 {
-    "shipping": [{
-        "id": "shipping001",
-        "name": "ส่งแบบธรรมดา",
-        "detail": "ส่งแบบธรรมดาภายใน 5-7 วัน",
-        "days": 7
-    },{
-        "id": "shipping002",
-        "name": "ส่งแบบ EMS",
-        "detail": "ส่งแบบธรรมดาภายใน 3-5 วัน",
-        "days": 5
-    },{
-        "id": "shipping003",
-        "name": "ส่งแบบด่วนพิเศษ",
-        "detail": "ส่งแบบธรรมดาภายใน 1-2 วัน",
-        "days": 2
-    }]
+    "customer": {
+        "displayName": "Customer displayName",
+        "address": {
+            "address": "55/7 หมู่11 ถ.ลำลูกกา",
+            "subdistrict": "บึงคำพร้อย",
+            "district": "ลำลูกกา",
+            "province": "ปทุมธานี",
+            "postcode": "12150"
+        },
+        "tel": "0999999999"
+    },
+    "products": [
+        {
+            "name": "เสื้อยืน",
+            "qty": 2,
+            "price": 200,
+            "choice": [
+                {
+                    "discription": "วันอังคาร, 1 - วัน อังคาร, 2 ส.ค. 2017 ฟรี",
+                    "type": "ส่งแบบส่งด่วน"
+                },
+                {
+                    "discription": "วันอังคาร, 1 - วัน อังคาร, 2 ส.ค. 2017 ฟรี",
+                    "type": "ส่งแบบธรรมดา"
+                }
+            ]
+        }
+    ],
+    "total": 400
 }

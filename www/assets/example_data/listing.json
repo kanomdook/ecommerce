@@ -2,7 +2,7 @@
     "banner_image": "http://www.limstreet.com/wp-content/uploads/2016/04/Nike_Free_Auxetic_Midsole_Technology_for_Running_and_Training_55159.jpg",
     "price": 100,
     "banner_title": "Fashion",
-    "populars": [
+    "lastvisit": [
         {
             "name": "NIKE",
             "imgUrl": "https://assets.wired.com/photos/w_1534/wp-content/uploads/2016/09/ff_nike-hyperadapt_angle_front.jpg",
@@ -24,7 +24,7 @@
             "price": 100
         }
     ],
-    "categories": [
+    "popularproducts": [
         {
             "name": "NIKE",
             "imgUrl": "https://assets.wired.com/photos/w_1534/wp-content/uploads/2016/09/ff_nike-hyperadapt_angle_front.jpg",

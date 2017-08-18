@@ -1,150 +1,46 @@
-<<<<<<< HEAD
 {
-    "cart": {
-        "products": [
-            {
-                "product": {
-                    "id": "product001",
-                    "name": "NIKE WOMEN 3 TEMPO MODERN EMBOSSED SHORT VOLT 719760-702 S-XL 11' - intl",
-                    "detail": "All item(s) will be shipped with Registered Air Mail and provide Track No. to check on the website of DHL.",
-                    "unitprice": 100,
-                    "img": [
-                        {
-                            "url": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
-                            "id": "img001"
-                        },
-                        {
-                            "url": "https://i.ebayimg.com/images/g/cBQAAOSwo4pYfYuN/s-l500.jpg",
-                            "id": "img002"
-                        }
-                    ],
-                    "promotion": [
-                        {
-                            "name": "promotion 1",
-                            "desc": "promotion 1",
-                            "code": "promotion 1"
-                        },
-                        {
-                            "name": "promotion 2",
-                            "desc": "promotion 2",
-                            "code": "promotion 2"
-                        }
-                    ],
-                    "qty": 40,
-                    "size": {
-                        "issize": true,
-                        "detail": {
-                            "desc": "detail size",
-                            "sizedetail": [
-                                {
-                                    "name": "S",
-                                    "qty": 10
-                                }
-                            ]
-                        }
-                    },
-                    "payment": [
-                        {
-                            "payment": "payment001"
-                        },
-                        {
-                            "payment": "payment002"
-                        }
-                    ],
-                    "shipping": [
-                        {
-                            "shipping": "shipping001"
-                        },
-                        {
-                            "shipping": "shipping002"
-                        },
-                        {
-                            "shipping": "shipping003"
-                        }
-                    ],
-                    "shop": {
-                        "shop": "shop001"
-                    }
-                },
-                "qty": 2,
-                "itemamount": 200
-            }
-        ],
-        "amount": 500
-    }
-=======
-{
-    "cart": {
-        "products": [
-            {
-                "product": {
-                    "id": "product001",
-                    "name": "NIKE WOMEN 3 TEMPO MODERN EMBOSSED SHORT VOLT 719760-702 S-XL 11' - intl",
-                    "detail": "All item(s) will be shipped with Registered Air Mail and provide Track No. to check on the website of DHL.",
-                    "unitprice": 100,
-                    "img": [
-                        {
-                            "url": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
-                            "id": "img001"
-                        },
-                        {
-                            "url": "https://i.ebayimg.com/images/g/cBQAAOSwo4pYfYuN/s-l500.jpg",
-                            "id": "img002"
-                        }
-                    ],
-                    "promotion": [
-                        {
-                            "name": "promotion 1",
-                            "desc": "promotion 1",
-                            "code": "promotion 1"
-                        },
-                        {
-                            "name": "promotion 2",
-                            "desc": "promotion 2",
-                            "code": "promotion 2"
-                        }
-                    ],
-                    "qty": 40,
-                    "size": {
-                        "issize": true,
-                        "detail": {
-                            "desc": "detail size",
-                            "sizedetail": [
-                                {
-                                    "name": "S",
-                                    "qty": 10
-                                }
-                            ]
-                        }
-                    },
-                    "payment": [
-                        {
-                            "payment": "payment001"
-                        },
-                        {
-                            "payment": "payment002"
-                        }
-                    ],
-                    "shipping": [
-                        {
-                            "shipping": "shipping001"
-                        },
-                        {
-                            "shipping": "shipping002"
-                        },
-                        {
-                            "shipping": "shipping003"
-                        }
-                    ],
-                    "shop": {
-                        "shop": "shop001"
-                    }
-                },
-                "qty": 2,
-                "itemamount": 200
-            }
-        ],
-        "amount": 500
-    }
->>>>>>> dd4c965ed3a774d698254ed3785c2fef1a25d43f
+    "products": [{
+            "product": {
+                "_id": "product001",
+                "name": "NIKE WOMEN 3 TEMPO MODERN EMBOSSED SHORT VOLT 719760-702 S-XL 11' - intl",
+                "unitprice": 100,
+                "img": [{
+                    "url": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
+                    "id": "img001"
+                }],
+                "issize": true,
+                "size": {
+                    "detail": "detail size",
+                    "sizedetail": [{
+                        "name": "S",
+                        "qty": 1
+                    }]
+                }
+            },
+            "qty": 2,
+            "itemamount": 200
+        },
+        {
+            "product": {
+                "_id": "product002",
+                "name": "NIKE WOMEN 3 TEMPO MODERN EMBOSSED SHORT VOLT 719760-702 S-XL 11' - intl",
+                "unitprice": 50,
+                "img": [{
+                    "url": "http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png",
+                    "id": "img001"
+                }],
+                "issize": true,
+                "size": {
+                    "detail": "US",
+                    "sizedetail": [{
+                        "name": "S",
+                        "qty": 1
+                    }]
+                }
+            },
+            "qty": 2,
+            "itemamount": 100
+        }
+    ],
+    "amount": 300
 }
