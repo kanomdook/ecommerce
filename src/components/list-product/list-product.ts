@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProdList } from "./list-product.model";
 
 /**
  * Generated class for the ListProductComponent component.
@@ -12,11 +13,11 @@ import { Component } from '@angular/core';
 })
 export class ListProductComponent {
 
-  text: string;
+@Input() productList: ProdList;
 
   constructor() {
     console.log('Hello ListProductComponent Component');
-    this.text = 'Hello World';
+    // this.text = 'Hello World';
   }
 
 }
