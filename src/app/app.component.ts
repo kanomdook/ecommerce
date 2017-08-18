@@ -14,6 +14,7 @@ import { FunctionalitiesPage } from '../pages/functionalities/functionalities';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { ProductTypesModel } from '../providers/product-type/product-type.model';
 import { ProductTypeService } from '../providers/product-type/product-type.service';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   selector: 'app-root',
@@ -105,19 +106,19 @@ export class MyApp {
 
   toggleSubmenu(menuName) {
     this.iconTxt[this.iconTxtLastActive] = 'add';
-    if (this.mainMenu){
+    if (this.mainMenu) {
       this.iconTxtLastActive = menuName;
       this.iconTxt[menuName] = 'add';
       this.mainMenu = '';
     } else {
-      this.iconTxtLastActive = menuName;      
+      this.iconTxtLastActive = menuName;
       this.iconTxt[menuName] = 'remove';
       this.mainMenu = menuName;
     }
   }
 
-  getProductTypeList(){
-    this.productTypeService.getData().then(data =>{
+  getProductTypeList() {
+    this.productTypeService.getData().then(data => {
       this.productTypeList = data;
     });
   }

@@ -36,4 +36,11 @@ export class LoginService {
             .then(response => response.json() as UserModel)
             .catch();
     }
+
+    // logingin(logindata): Promise<UserModel> {
+    //     return this.http.get('./assets/example_data/users.json')
+    //         .toPromise()
+    //         .then(response => response.json() as UserModel)
+    //         .catch();
+    // }
 }
