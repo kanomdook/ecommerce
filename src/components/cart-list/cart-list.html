@@ -1,0 +1,21 @@
+<ion-item class="notification-item" *ngFor="let data of dataCartList">
+  <ion-avatar item-left>
+    <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="data.imgUrl"></preload-image>
+  </ion-avatar>
+  <h2 class="item-title">{{data.name}}</h2>
+  <p class="item-description">{{data.detail}}</p>
+  <p class="item-description">{{data.price}} บาท</p>
+  <p>
+    <button ion-button icon-only color="danger" class="circle-btn" (click)="decrease()">
+    <ion-icon name="remove"></ion-icon>
+  </button>
+    <span class="tb">{{data.quantity}}</span>
+    <button ion-button icon-only color="btn" class="circle-btn" (click)="increase()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+  
+  <button ion-button icon-only color="dark" class="circle-btn" (click)="deleteItem()">
+    <ion-icon name="trash"></ion-icon>
+  </button>
+  </p>
+</ion-item>
