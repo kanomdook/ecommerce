@@ -22,7 +22,7 @@ export class ProductDetailPage {
   ionViewDidLoad() {
     this.productService.getData().then(data => {
       this.productData = data;
-      console.log(this.productData.product.size.detail);
+      // console.log(this.productData.product.size.detail);
     });
   }
   goToSchedulePage() {
