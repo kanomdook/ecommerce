@@ -607,6 +607,7 @@ var CounterInput_1;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkout_checkout__ = __webpack_require__(710);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -618,6 +619,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var CartPage = (function () {
     function CartPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
@@ -626,16 +628,20 @@ var CartPage = (function () {
     CartPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad CartPage');
     };
+    CartPage.prototype.onPayment = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__checkout_checkout__["a" /* CheckoutPage */]);
+    };
     return CartPage;
 }());
 CartPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-cart',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\pages\cart\cart.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'CART\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <cart-list [dataCartList]=""></cart-list>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-toolbar color="btn">\n\n    <div style="text-align: center;">\n\n      <ion-buttons>\n\n        <button ion-button icon-left (click)="goToSchedulePage()">\n\n        <ion-icon name="cash"></ion-icon>PayMent\n\n      </button>\n\n      </ion-buttons>\n\n    </div>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\pages\cart\cart.html"*/,
+        selector: 'page-cart',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\pages\cart\cart.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'CART\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <cart-list [dataCartList]=""></cart-list>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <ion-toolbar color="btn">\n\n    <div style="text-align: center;">\n\n      <ion-buttons>\n\n        <button ion-button icon-left (click)="onPayment()">\n\n        <ion-icon name="cash"></ion-icon>PayMent\n\n      </button>\n\n      </ion-buttons>\n\n    </div>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\pages\cart\cart.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object])
 ], CartPage);
 
+var _a, _b;
 //# sourceMappingURL=cart.js.map
 
 /***/ }),
@@ -663,15 +669,19 @@ webpackEmptyAsyncContext.id = 176;
 var map = {
 	"../pages/cart/cart.module": [
 		709,
-		2
+		8
+	],
+	"../pages/checkout/checkout.module": [
+		718,
+		7
 	],
 	"../pages/product-detail/product-detail.module": [
 		707,
-		1
+		6
 	],
 	"../pages/shop/shop.module": [
 		708,
-		0
+		5
 	]
 };
 function webpackAsyncContext(req) {
@@ -3395,6 +3405,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__components_data_scroll_x_data_scroll_x__ = __webpack_require__(701);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__components_data_grid_data_grid__ = __webpack_require__(703);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__components_topbar_topbar__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_checkout_checkout__ = __webpack_require__(710);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__components_shipping_shipping__ = __webpack_require__(711);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__components_cart_list_cart_list__ = __webpack_require__(712);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__components_payment_payment__ = __webpack_require__(714);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__components_confirm_confirm__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__components_list_shop_list_shop__ = __webpack_require__(716);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__components_list_product_list_product__ = __webpack_require__(717);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3486,6 +3503,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
+
+
+
 function createTranslateLoader(http) {
     return new __WEBPACK_IMPORTED_MODULE_4__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
 }
@@ -3541,7 +3565,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_78__pages_shop_shop__["a" /* ShopPage */],
             __WEBPACK_IMPORTED_MODULE_80__components_data_scroll_x_data_scroll_x__["a" /* DataScrollXComponent */],
             __WEBPACK_IMPORTED_MODULE_81__components_data_grid_data_grid__["a" /* DataGridComponent */],
-            __WEBPACK_IMPORTED_MODULE_82__components_topbar_topbar__["a" /* TopbarComponent */]
+            __WEBPACK_IMPORTED_MODULE_82__components_topbar_topbar__["a" /* TopbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_83__pages_checkout_checkout__["a" /* CheckoutPage */],
+            __WEBPACK_IMPORTED_MODULE_84__components_shipping_shipping__["a" /* ShippingComponent */],
+            __WEBPACK_IMPORTED_MODULE_85__components_cart_list_cart_list__["a" /* CartListComponent */],
+            __WEBPACK_IMPORTED_MODULE_86__components_payment_payment__["a" /* PaymentComponent */],
+            __WEBPACK_IMPORTED_MODULE_87__components_confirm_confirm__["a" /* ConfirmComponent */],
+            __WEBPACK_IMPORTED_MODULE_88__components_list_shop_list_shop__["a" /* ListShopComponent */],
+            __WEBPACK_IMPORTED_MODULE_89__components_list_product_list_product__["a" /* ListProductComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_48__angular_platform_browser__["a" /* BrowserModule */],
@@ -3550,7 +3581,8 @@ AppModule = __decorate([
                 links: [
                     { loadChildren: '../pages/product-detail/product-detail.module#ProductDetailPageModule', name: 'ProductDetailPage', segment: 'product-detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/shop/shop.module#ShopPageModule', name: 'ShopPage', segment: 'shop', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/checkout/checkout.module#CheckoutPageModule', name: 'CheckoutPage', segment: 'checkout', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forRoot({
@@ -3598,7 +3630,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_70__pages_video_playlist_video_playlist__["a" /* VideoPlaylistPage */],
             __WEBPACK_IMPORTED_MODULE_74__pages_cart_cart__["a" /* CartPage */],
             __WEBPACK_IMPORTED_MODULE_75__pages_product_detail_product_detail__["a" /* ProductDetailPage */],
-            __WEBPACK_IMPORTED_MODULE_78__pages_shop_shop__["a" /* ShopPage */]
+            __WEBPACK_IMPORTED_MODULE_78__pages_shop_shop__["a" /* ShopPage */],
+            __WEBPACK_IMPORTED_MODULE_83__pages_checkout_checkout__["a" /* CheckoutPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_37__pages_feed_feed_service__["a" /* FeedService */],
@@ -5175,6 +5208,311 @@ var DataTopBar = (function () {
 }());
 
 //# sourceMappingURL=topbar.model.js.map
+
+/***/ }),
+
+/***/ 710:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CheckoutPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the CheckoutPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var CheckoutPage = (function () {
+    function CheckoutPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    CheckoutPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CheckoutPage');
+    };
+    return CheckoutPage;
+}());
+CheckoutPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'page-checkout',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\pages\checkout\checkout.html"*/'<!--\n\n  Generated template for the CheckoutPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>checkout</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\pages\checkout\checkout.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+], CheckoutPage);
+
+//# sourceMappingURL=checkout.js.map
+
+/***/ }),
+
+/***/ 711:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShippingComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ShippingComponent component.
+ *
+ * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+ * for more info on Angular Components.
+ */
+var ShippingComponent = (function () {
+    function ShippingComponent() {
+        console.log('Hello ShippingComponent Component');
+        this.text = 'Hello World';
+    }
+    return ShippingComponent;
+}());
+ShippingComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'shipping',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\components\shipping\shipping.html"*/'<!-- Generated template for the ShippingComponent component -->\n\n<div>\n\n  {{text}}\n\n</div>\n\n'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\components\shipping\shipping.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], ShippingComponent);
+
+//# sourceMappingURL=shipping.js.map
+
+/***/ }),
+
+/***/ 712:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__cart_list_model__ = __webpack_require__(713);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CartListComponent = (function () {
+    function CartListComponent() {
+    }
+    CartListComponent.prototype.decrease = function () {
+    };
+    CartListComponent.prototype.increase = function () {
+    };
+    CartListComponent.prototype.deleteItem = function () {
+    };
+    return CartListComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__cart_list_model__["a" /* DataCartList */])
+], CartListComponent.prototype, "dataCartList", void 0);
+CartListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'cart-list',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\components\cart-list\cart-list.html"*/'<ion-item class="notification-item" *ngFor="let data of dataCartList">\n\n  <ion-avatar item-left>\n\n    <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="data.imgUrl"></preload-image>\n\n  </ion-avatar>\n\n  <h2 class="item-title">{{data.name}}</h2>\n\n  <p class="item-description">{{data.detail}}</p>\n\n  <p class="item-description">{{data.price}} บาท</p>\n\n  <p>\n\n    <button ion-button icon-only color="danger" class="circle-btn" (click)="decrease()">\n\n    <ion-icon name="remove"></ion-icon>\n\n  </button>\n\n    <span class="tb">{{data.quantity}}</span>\n\n    <button ion-button icon-only color="btn" class="circle-btn" (click)="increase()">\n\n    <ion-icon name="add"></ion-icon>\n\n  </button>\n\n\n\n    <button ion-button icon-only color="dark" class="circle-btn" (click)="deleteItem()">\n\n    <ion-icon name="trash"></ion-icon>\n\n  </button>\n\n  </p>\n\n</ion-item>'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\components\cart-list\cart-list.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], CartListComponent);
+
+//# sourceMappingURL=cart-list.js.map
+
+/***/ }),
+
+/***/ 713:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataCartList; });
+var DataCartList = (function () {
+    function DataCartList() {
+    }
+    return DataCartList;
+}());
+
+//# sourceMappingURL=cart-list.model.js.map
+
+/***/ }),
+
+/***/ 714:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaymentComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the PaymentComponent component.
+ *
+ * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+ * for more info on Angular Components.
+ */
+var PaymentComponent = (function () {
+    function PaymentComponent() {
+        console.log('Hello PaymentComponent Component');
+        this.text = 'Hello World';
+    }
+    return PaymentComponent;
+}());
+PaymentComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'payment',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\components\payment\payment.html"*/'<!-- Generated template for the PaymentComponent component -->\n\n<div>\n\n  {{text}}\n\n</div>\n\n'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\components\payment\payment.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], PaymentComponent);
+
+//# sourceMappingURL=payment.js.map
+
+/***/ }),
+
+/***/ 715:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ConfirmComponent component.
+ *
+ * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+ * for more info on Angular Components.
+ */
+var ConfirmComponent = (function () {
+    function ConfirmComponent() {
+        console.log('Hello ConfirmComponent Component');
+        this.text = 'Hello World';
+    }
+    return ConfirmComponent;
+}());
+ConfirmComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'confirm',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\components\confirm\confirm.html"*/'<!-- Generated template for the ConfirmComponent component -->\n\n<div>\n\n  {{text}}\n\n</div>\n\n'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\components\confirm\confirm.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], ConfirmComponent);
+
+//# sourceMappingURL=confirm.js.map
+
+/***/ }),
+
+/***/ 716:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListShopComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ListShopComponent component.
+ *
+ * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+ * for more info on Angular Components.
+ */
+var ListShopComponent = (function () {
+    function ListShopComponent() {
+        console.log('Hello ListShopComponent Component');
+        this.text = 'Hello World';
+    }
+    return ListShopComponent;
+}());
+ListShopComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'list-shop',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\components\list-shop\list-shop.html"*/'<!-- Generated template for the ListShopComponent component -->\n\n<div>\n\n  {{text}}\n\n</div>\n\n'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\components\list-shop\list-shop.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], ListShopComponent);
+
+//# sourceMappingURL=list-shop.js.map
+
+/***/ }),
+
+/***/ 717:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListProductComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ListProductComponent component.
+ *
+ * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+ * for more info on Angular Components.
+ */
+var ListProductComponent = (function () {
+    function ListProductComponent() {
+        console.log('Hello ListProductComponent Component');
+        this.text = 'Hello World';
+    }
+    return ListProductComponent;
+}());
+ListProductComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'list-product',template:/*ion-inline-start:"D:\C@NET\project\G-vintage\ecommerce\src\components\list-product\list-product.html"*/'<!-- Generated template for the ListProductComponent component -->\n\n<div>\n\n  {{text}}\n\n</div>\n\n'/*ion-inline-end:"D:\C@NET\project\G-vintage\ecommerce\src\components\list-product\list-product.html"*/
+    }),
+    __metadata("design:paramtypes", [])
+], ListProductComponent);
+
+//# sourceMappingURL=list-product.js.map
 
 /***/ }),
 
