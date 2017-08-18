@@ -91,6 +91,13 @@ import { ShopService } from "../pages/shop/shop.service";
 import { DataScrollXComponent } from "../components/data-scroll-x/data-scroll-x";
 import { DataGridComponent } from "../components/data-grid/data-grid";
 import { TopbarComponent } from "../components/topbar/topbar";
+import { CheckoutPage } from "../pages/checkout/checkout";
+import { ShippingComponent } from "../components/shipping/shipping";
+import { CartListComponent } from "../components/cart-list/cart-list";
+import { PaymentComponent } from "../components/payment/payment";
+import { ConfirmComponent } from "../components/confirm/confirm";
+import { ListShopComponent } from "../components/list-shop/list-shop";
+import { ListProductComponent } from "../components/list-product/list-product";
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -143,7 +150,14 @@ export function createTranslateLoader(http: Http) {
     ShopPage,
     DataScrollXComponent,
     DataGridComponent,
-    TopbarComponent
+    TopbarComponent,
+    CheckoutPage,
+    ShippingComponent,
+    CartListComponent,
+    PaymentComponent,
+    ConfirmComponent,
+    ListShopComponent,
+    ListProductComponent
   ],
   imports: [
     BrowserModule,
@@ -194,7 +208,8 @@ export function createTranslateLoader(http: Http) {
     VideoPlaylistPage,
     CartPage,
     ProductDetailPage,
-    ShopPage
+    ShopPage,
+    CheckoutPage
   ],
   providers: [
     FeedService,
