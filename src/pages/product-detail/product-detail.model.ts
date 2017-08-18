@@ -17,18 +17,18 @@ export class ProductItemsModel {
         amount: number;
     };
     qty: number;
-    size: {
-        issize: boolean;
-        detail: {
-            desc: string;
-            sizedetail: Array<SizeDetailModel>;
-        }
-    };
+    issize: boolean;
+    size: ProductDataSize = new ProductDataSize();
     category: Array<CategoryModel>;
     payment: Array<PaymentModel>;
     shipping: Array<ShippingModel>;
     shop: string;
     relationProducts: Array<RelationProductsModel>;
+}
+
+export class ProductDataSize {
+    detail: string;
+    sizedetail: Array<SizeDetailModel>;
 }
 
 export class ImgsModel {
@@ -88,6 +88,6 @@ export class RelationProductsModel {
 }
 ////////////////to use/////////////////////
 export class ProductModel {
-    product: ProductItemsModel;
+    product: ProductItemsModel = new ProductItemsModel();
 }
 ///////////////////////////////////////////

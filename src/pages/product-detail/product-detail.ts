@@ -10,16 +10,14 @@ import { ProductService } from './product-detail.service';
   templateUrl: 'product-detail.html',
 })
 export class ProductDetailPage {
-  private productDetail: ProductModel = new ProductModel();
-  private productData: any = {};
-
+  private productData: ProductModel = new ProductModel();
   constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductService) {
   }
 
   ionViewDidLoad() {
-    this.productService.getData().then(data =>{
-      this.productDetail = data;
-      this.productData = this.productDetail.product;
+    this.productService.getData().then(data => {
+      this.productData = data;
+      console.log(this.productData.product.size.detail);
     });
   }
 

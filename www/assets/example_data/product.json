@@ -47,7 +47,12 @@
                 "code": "promotion 2"
             }
         ],
-        "favorite": [],
+        "favorite": [
+            {
+                "customerid": "xxx",
+                "favdate": "2017-08-05T14:05:59"
+            }
+        ],
         "historyLog": [],
         "stock": {
             "stockvalue": [
@@ -63,27 +68,25 @@
         "qty": 40,
         "issize": true,
         "size": {
-            "detail": {
-                "desc": "detail size",
-                "sizedetail": [
-                    {
-                        "name": "S",
-                        "qty": 10
-                    },
-                    {
-                        "name": "M",
-                        "qty": 10
-                    },
-                    {
-                        "name": "L",
-                        "qty": 10
-                    },
-                    {
-                        "name": "XL",
-                        "qty": 10
-                    }
-                ]
-            }
+            "detail": "detail size",
+            "sizedetail": [
+                {
+                    "name": "S",
+                    "qty": 10
+                },
+                {
+                    "name": "M",
+                    "qty": 10
+                },
+                {
+                    "name": "L",
+                    "qty": 10
+                },
+                {
+                    "name": "XL",
+                    "qty": 10
+                }
+            ]
         },
         "category": [
             {
