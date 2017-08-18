@@ -1,8 +1,7 @@
-//Mick Created 18/8/60 12.50 pm.
+
 export class UserModel {
-    userdata: Array<UserItem>;
-}
-export class UserItem {
+    //Mick Created 18/8/60 12.50 pm.
+    // userdata: UserItem;
     _id: string;
     created: string;
     displayName: string;
@@ -13,6 +12,9 @@ export class UserItem {
     password: string;
     profileImageURL: string;
     provider: string;
-    roles: Array<any>;
 }
+// export class UserItem {
+
+//     // roles: Array<any>;
+// }
 
