@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ 'PROFILE' | translate }}</ion-title>
+    <ion-title>{{ profile.title | translate }}</ion-title>
     <ion-buttons end [hidden]="!settingsForm.dirty">
       <button ion-button>
         {{ 'SAVE' | translate }}
@@ -13,7 +13,7 @@
   <div class="user-image-content">
     <ion-row no-padding class="user-image-row">
       <ion-col no-padding width-40>
-        <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="profile.user.image" alt="this is the image" title="IMAGE!"></preload-image>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="profile.user.profileImageURL" alt="this is the image" title="IMAGE!"></preload-image>
       </ion-col>
     </ion-row>
     <ion-row no-padding class="user-image-row">
@@ -26,16 +26,16 @@
   <form [formGroup]="settingsForm" class="settings-form">
     <ion-list class="user-data-content">
       <ion-item>
-        <ion-label stacked>{{ 'NAME' | translate }}</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
+        <ion-label stacked>{{ 'First Name' | translate }}</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label stacked>{{ 'LOCATION' | translate }}</ion-label>
-        <ion-input type="text" formControlName="location"></ion-input>
+        <ion-label stacked>{{ 'Last Name' | translate }}</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label stacked>{{ 'DESCRIPTION' | translate }}</ion-label>
-        <ion-textarea formControlName="description" rows="5" placeholder="Your description here..."></ion-textarea>
+        <ion-label stacked>{{ 'E-mail' | translate }}</ion-label>
+        <ion-textarea formControlName="email" rows="5" placeholder="Your email here..."></ion-textarea>
       </ion-item>
     </ion-list>
 
@@ -78,7 +78,6 @@
     </ion-row>
 
     <ion-list class="user-data-content">
-    <!-- <ion-list class="user-preferences-row"> -->
       <ion-item>
         <ion-label>{{ 'SELECT_LANGUAGE' | translate }}</ion-label>
         <ion-select formControlName="language" cancelText="{{ 'CANCEL' | translate }}" okText="{{ 'OK' | translate }}">
@@ -96,6 +95,11 @@
   </form>
 
   <button class="alt-button rate-app-button" ion-button full (click)="rateApp()">{{'RATE_APP' | translate}}</button>
+
+  <button class="alt-button logout-button" ion-button full icon-left (click)="login()">
+    <ion-icon name="log-in"></ion-icon>
+    {{'LOG_IN' | translate }}
+  </button>
 
   <button class="alt-button" ion-button full (click)="showPrivacyModal()">{{'PRIVACY_POLICY' | translate}}</button>
 
