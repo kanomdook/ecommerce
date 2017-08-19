@@ -5,23 +5,16 @@
 </ion-header>
 
 <ion-content class="contact-card-content">
-    <topbar [dataTopBar]="productData.product"></topbar>
+    <topbar [dataTopBar]="productData"></topbar>
 
     <ion-list class="details-list">
         <ion-item class="detail-item">
             <ion-avatar item-left>
                 <ion-icon name="ios-cash-outline"></ion-icon>
             </ion-avatar>
-            <span class="detail-text">Price {{productData.product.unitprice | number}} ฿</span>
+            <span class="detail-text">Price {{productData.unitprice | number}} ฿</span>
 
         </ion-item>
-        <!-- <ion-item class="detail-item">
-      <ion-avatar item-left>
-        <ion-icon name="ios-cube-outline"></ion-icon>
-      </ion-avatar>
-      <span class="detail-text">{{productData.name}}</span>
-      <span class="detail-text">{{productData.detail}}</span>
-    </ion-item> -->
         <ion-item class="detail-item">
             <h3 class="categories-title-pomotion">
                 <ion-icon name="md-pricetags"></ion-icon> {{' Promotion' | translate}}</h3>
@@ -30,11 +23,11 @@
 
         <ion-item class="detail-item">
             <h3>{{' Size' | translate}}</h3>
-            <span class="detail-text">{{productData.product.size.detail}}</span>
+            <span class="detail-text">{{productData.size.detail}}</span>
         </ion-item>
 
         <ion-list class="radio-tags" radio-group>
-            <ion-item *ngFor="let data of productData.product.size.sizedetail" class="radio-tag">
+            <ion-item *ngFor="let data of productData.size.sizedetail" class="radio-tag">
                 <ion-label>{{data.name}}</ion-label>
                 <ion-radio value="{{data.name}}"></ion-radio>
             </ion-item>
@@ -42,7 +35,7 @@
 
     </ion-list>
     <h4 class="categories-title">Relation products</h4>
-    <data-scroll-x [dataListX]="productData.product.relationProducts"></data-scroll-x>
+    <data-scroll-x [dataListX]="productData.relationProducts"></data-scroll-x>
 </ion-content>
 
 <ion-footer>
