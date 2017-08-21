@@ -1,6 +1,6 @@
 export class ListingModel {
-  populars: Array<ListingItemModel>;
-  categories: Array<ListingItemModel>;
+  lastvisit: Array<ListingItemModel>;
+  popularproducts: Array<ListingItemModel>;
   popularshops: Array<PopularshopsItemModel>;
   banner_title: string;
   banner_image: string;

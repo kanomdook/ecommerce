@@ -105,6 +105,7 @@ import { ShoplistService } from "../pages/shop-list/shop-list.service";
 import { ProductListPage } from "../pages/product-list/product-list";
 import { ProductlistService } from "../pages/product-list/product-list.service";
 import { SettingsService } from "../pages/settings/setting.service";
+import {CheckoutService} from "../pages/checkout/checkoutservice";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -259,7 +260,8 @@ export function createTranslateLoader(http: Http) {
     LoginService,
     ShoplistService,
     ProductlistService,
-    SettingsService
+    SettingsService,
+    CheckoutService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

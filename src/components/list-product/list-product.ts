@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProdList } from "./list-product.model";
+import { ProductDetailPage } from "../../pages/product-detail/product-detail";
+import { NavController } from "ionic-angular";
 
 /**
  * Generated class for the ListProductComponent component.
@@ -15,9 +17,15 @@ export class ListProductComponent {
 
 @Input() productList: ProdList;
 
-  constructor() {
+  constructor(
+    public nav: NavController    
+  ) {
     console.log('Hello ListProductComponent Component');
     // this.text = 'Hello World';
+  }
+
+  gotoProductDetail() {
+    this.nav.push(ProductDetailPage);
   }
 
 }

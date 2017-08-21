@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the PaymentComponent component.
@@ -11,12 +11,18 @@ import { Component } from '@angular/core';
   templateUrl: 'payment.html'
 })
 export class PaymentComponent {
-
+  @Input() paymentgateway: any;
+  @Output()
+  paygateway: EventEmitter<string> = new EventEmitter<string>();
   text: string;
 
   constructor() {
     console.log('Hello PaymentComponent Component');
     this.text = 'Hello World';
+  }
+
+  gotoStep3() {
+    this.paygateway.emit('confirm');
   }
 
 }

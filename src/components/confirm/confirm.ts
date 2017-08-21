@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the ConfirmComponent component.
@@ -11,12 +11,18 @@ import { Component } from '@angular/core';
   templateUrl: 'confirm.html'
 })
 export class ConfirmComponent {
-
+  @Input() confirm: any;
+  @Output()
+  confirmOrder: EventEmitter<string> = new EventEmitter<string>();
   text: string;
 
   constructor() {
     console.log('Hello ConfirmComponent Component');
     this.text = 'Hello World';
+  }
+
+  placeorder() {
+    this.confirmOrder.emit('success');
   }
 
 }

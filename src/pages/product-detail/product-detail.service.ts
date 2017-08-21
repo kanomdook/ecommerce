@@ -3,16 +3,16 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { ProductModel } from './product-detail.model';
+import { ProductItemsModel } from './product-detail.model';
 
 @Injectable()
 export class ProductService {
   constructor(public http: Http) {}
 
-  getData(): Promise<ProductModel> {
+  getData(): Promise<ProductItemsModel> {
     return this.http.get('../../assets/example_data/product.json')
      .toPromise()
-     .then(response => response.json() as ProductModel)
+     .then(response => response.json() as ProductItemsModel)
      .catch(this.handleError);
   }
 

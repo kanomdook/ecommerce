@@ -6,13 +6,27 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>checkout</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>checkout</ion-title>
+    </ion-navbar>
 
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content class="forms-validations-content">
+    <ion-segment [(ngModel)]="testing" class="forms-examples-segment" color="light">
+        <ion-segment-button value="address">
+            <!--<ion-icon name="checkmark-circle-outline"></ion-icon> -->
+            ค่าซื้อขั้นต่ำ
+        </ion-segment-button>
+        <ion-segment-button value="payment">ชำระเงิน</ion-segment-button>
+        <ion-segment-button value="confirm">ยืนยัน</ion-segment-button>
+    </ion-segment>
+    <ion-list padding *ngIf="testing==='address'" ngSelected="selected">
+        <shipping [datapayment]="shipping" (clickp)="shippingevent($event)"></shipping>
+    </ion-list>
+    <ion-list padding *ngIf="testing==='payment'">
+        <payment [paymentgateway]="payment" (paygateway)="paymentgateway($event)"></payment>
+    </ion-list>
+    <ion-list padding *ngIf="testing==='confirm'">
+        <confirm [confirm]="confirm" (confirmOrder)="save($event)"></confirm>
+    </ion-list>
 </ion-content>
