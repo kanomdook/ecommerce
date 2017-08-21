@@ -43,19 +43,25 @@ export class LoginPage {
 
   doLogin() {
     this.loading = this.loadingCtrl.create();
-    // this.loginService.logingin(this.login).then((user) => {
+    // LOGIN with route api
+    this.loginService.logingin(this.login.value.username).then((user) => {
+      this.loading.dismiss();
+      console.log("user : " + user);
+      this.nav.setRoot(this.main_page.component);
+    }, (error) => {
+      this.loading.dismiss();
+      console.error(error);
+    });
+
+    //   } else {
     //   this.datauser = user;
     //   if (this.login.value.email == this.datauser.email && this.login.value.password == this.datauser.password) {
-    this.loading.dismiss();
-    this.nav.setRoot(this.main_page.component);
-    //   } else {
+
     //     this.loading.dismiss();
     //     alert("username or password is not correct");
     //   }
 
-    // }, (error) => {
-    //   console.error(error);
-    // });
+
 
     // this.nav.setRoot(this.main_page.component);
   }
