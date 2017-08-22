@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductItemsModel } from './product-detail.model';
 import { ProductService } from './product-detail.service';
 import { CartPage } from "../cart/cart";
+import { LoginPage } from "../login/login";
 
 
 @IonicPage()
@@ -26,11 +27,16 @@ export class ProductDetailPage {
     });
   }
   addToCart(product) {
-    this.productService.addToCart(product).then((data) => {
-      this.nav.push(CartPage)
-    }, (error) => {
-      console.error(error);
-    });
+    let user = JSON.parse(window.localStorage.getItem('user'));
+    if (user) {
+      this.productService.addToCart(product).then((data) => {
+        this.nav.push(CartPage)
+      }, (error) => {
+        console.error(error);
+      });
+    } else {
+      this.nav.push(LoginPage);      
+    }
   }
 
 }

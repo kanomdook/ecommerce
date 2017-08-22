@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   addToCart(product): Promise<ProductItemsModel> {
-    product.user = JSON.parse(window.localStorage.getItem('user'));
+    product.selecteduser = JSON.parse(window.localStorage.getItem('user'));
     return this.http.post(Constants.URL + 'api/manage-carts/add', product)
       .toPromise()
       .then(response => response.json() as ProductItemsModel)

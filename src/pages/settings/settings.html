@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ profile.title | translate }}</ion-title>
+    <ion-title>{{ 'PROFILE' | translate }}</ion-title>
     <ion-buttons end [hidden]="!settingsForm.dirty">
       <button ion-button>
         {{ 'SAVE' | translate }}
@@ -10,10 +10,10 @@
 </ion-header>
 
 <ion-content class="settings-content">
-  <div class="user-image-content">
+  <div class="user-image-content" *ngIf="profile">
     <ion-row no-padding class="user-image-row">
       <ion-col no-padding width-40>
-        <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="profile.user.profileImageURL" alt="this is the image" title="IMAGE!"></preload-image>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="profile.profileImageURL" alt="this is the image" title="IMAGE!"></preload-image>
       </ion-col>
     </ion-row>
     <ion-row no-padding class="user-image-row">
@@ -23,7 +23,7 @@
     </ion-row>
   </div>
 
-  <form [formGroup]="settingsForm" class="settings-form">
+  <form [formGroup]="settingsForm" class="settings-form" *ngIf="profile">
     <ion-list class="user-data-content">
       <ion-item>
         <ion-label stacked>{{ 'First Name' | translate }}</ion-label>
@@ -35,11 +35,11 @@
       </ion-item>
       <ion-item>
         <ion-label stacked>{{ 'E-mail' | translate }}</ion-label>
-        <ion-textarea formControlName="email" rows="5" placeholder="Your email here..."></ion-textarea>
+        <ion-input formControlName="email" rows="5" placeholder="Your email here..."></ion-input>
       </ion-item>
     </ion-list>
 
-    <ion-row class="user-preferences-row">
+    <!-- <ion-row class="user-preferences-row">
       <span class="radio-tags-label">{{'CURRENCY' | translate}}</span>
       <ion-list class="radio-tags" radio-group formControlName="currency">
         <ion-item class="radio-tag">
@@ -91,21 +91,21 @@
         <ion-label>{{'NOTIFICATIONS' | translate}}</ion-label>
         <ion-toggle formControlName="notifications"></ion-toggle>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
   </form>
 
-  <button class="alt-button rate-app-button" ion-button full (click)="rateApp()">{{'RATE_APP' | translate}}</button>
-
-  <button class="alt-button logout-button" ion-button full icon-left (click)="login()">
-    <ion-icon name="log-in"></ion-icon>
-    {{'LOG_IN' | translate }}
-  </button>
+  <!-- <button class="alt-button rate-app-button" ion-button full (click)="rateApp()">{{'RATE_APP' | translate}}</button> -->
 
   <button class="alt-button" ion-button full (click)="showPrivacyModal()">{{'PRIVACY_POLICY' | translate}}</button>
 
   <button class="alt-button" ion-button full (click)="showTermsModal()">{{'TERMS_OF_USE' | translate }}</button>
 
-  <button class="alt-button logout-button" ion-button full icon-left (click)="logout()">
+  <button class="alt-button logout-button" *ngIf="!profile" ion-button full icon-left (click)="login()">
+    <ion-icon name="log-in"></ion-icon>
+    {{'LOG_IN' | translate }}
+  </button>
+
+  <button class="alt-button logout-button" *ngIf="profile" ion-button full icon-left (click)="logout()">
     <ion-icon name="log-out"></ion-icon>
     {{'LOG_OUT' | translate }}
   </button>

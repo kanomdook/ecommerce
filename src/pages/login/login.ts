@@ -13,6 +13,7 @@ import { GoogleLoginService } from '../google-login/google-login.service';
 import { TwitterLoginService } from '../twitter-login/twitter-login.service';
 
 import { UserModel } from '../login/login.model';
+import { SettingsService } from "../settings/setting.service";
 
 @Component({
   selector: 'login-page',
@@ -32,7 +33,8 @@ export class LoginPage {
     public googleLoginService: GoogleLoginService,
     public twitterLoginService: TwitterLoginService,
     public loadingCtrl: LoadingController,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public settingService: SettingsService,
   ) {
     this.main_page = { component: TabsNavigationPage };
 
@@ -40,6 +42,13 @@ export class LoginPage {
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
+  }
+
+  ionViewWillEnter() {
+    let user = this.settingService.getData();
+    if(user){
+      this.nav.pop();
+    }
   }
 
   doLogin() {
@@ -52,7 +61,8 @@ export class LoginPage {
       this.loading.dismiss();
       // console.log("user : " + user);
       localStorage.setItem('user', JSON.stringify(user));
-      this.nav.setRoot(this.main_page.component);
+      this.nav.pop();
+      // this.nav.setRoot(this.main_page.component);
     }, (error) => {
       // let er = JSON.parse(error);
       this.loading.dismiss();

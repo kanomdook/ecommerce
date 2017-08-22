@@ -18,6 +18,7 @@ import { LanguageModel } from "../../providers/language/language.model";
 import { AppRate } from '@ionic-native/app-rate';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
+import { LoginPage } from "../login/login";
 
 @Component({
   selector: 'settings-page',
@@ -61,39 +62,48 @@ export class SettingsPage {
   }
 
   ionViewDidLoad() {
-    this.loading.present();
-    this.settingService.getData().then(data => {
-      this.profile = data;
+    this.getUserData();
+  }
+  ionViewWillEnter() {
+    console.log('get user');
+    this.getUserData();
+  }
+  getUserData() {
+    // this.loading.present();
+    this.profile = this.settingService.getData();
 
-      // this.profile.user = data.user;
+    // this.profile.user = data.user;
 
-      // setValue: With setValue, you assign every form control value at once by passing in a data object whose properties exactly match the form model behind the FormGroup.
-      // patchValue: With patchValue, you can assign values to specific controls in a FormGroup by supplying an object of key/value pairs for just the controls of interest.
-      // More info: https://angular.io/docs/ts/latest/guide/reactive-forms.html#!#populate-the-form-model-with-_setvalue_-and-_patchvalue_
+    // setValue: With setValue, you assign every form control value at once by passing in a data object whose properties exactly match the form model behind the FormGroup.
+    // patchValue: With patchValue, you can assign values to specific controls in a FormGroup by supplying an object of key/value pairs for just the controls of interest.
+    // More info: https://angular.io/docs/ts/latest/guide/reactive-forms.html#!#populate-the-form-model-with-_setvalue_-and-_patchvalue_
+    if (this.profile) {
       this.settingsForm.patchValue({
-        firstName: data.user.firstName,
-        lastName: data.user.lastName,
-        email: data.user.email,
-        currency: 'dollar',
-        weather: 'fahrenheit',
-        notifications: true,
-        language: this.languages[0]
+        firstName: this.profile.firstName,
+        lastName: this.profile.lastName,
+        email: this.profile.email,
+        // currency: 'dollar',
+        // weather: 'fahrenheit',
+        // notifications: true,
+        // language: this.languages[0]
       });
+    }
 
-      this.loading.dismiss();
+    // this.loading.dismiss();
 
-      // this.settingsForm.get('language').valueChanges.subscribe((lang) => {
-      //   this.setLanguage(lang);
-      // });
-    });
+    // this.settingsForm.get('language').valueChanges.subscribe((lang) => {
+    //   this.setLanguage(lang);
+    // });
+  }
+
+  login() {
+    this.nav.push(LoginPage);
+    this.getUserData();
   }
 
   logout() {
-    // navigate to the new page if it is not the current page
-    this.app.getRootNav().popToRoot();
-    setTimeout(() => {
-      this.app.getRootNav().push(this.rootPage);
-    }, 100);
+    window.localStorage.clear();
+    this.getUserData();
   }
 
   showTermsModal() {
@@ -141,7 +151,7 @@ export class SettingsPage {
                 this.cropService.crop(results[i], { quality: 75 }).then(
                   newImage => {
                     this.settingService.setUserImage(newImage);
-                    this.profile.user.profileImageURL = newImage;
+                    this.profile.profileImageURL = newImage;
                   },
                   error => console.error("Error cropping image", error)
                 );
