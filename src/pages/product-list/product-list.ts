@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductlistService } from "./product-list.service";
 import { ProdLists } from "./product-list.model";
+import { ProductDetailPage } from "../product-detail/product-detail";
 
 /**
  * Generated class for the ProductListPage page.
@@ -26,6 +27,10 @@ export class ProductListPage {
     this.productlistService.getData().then(data => {
       this.Listprod = data;
     });
+  }
+
+  gotoproductdetail(id) {
+    this.navCtrl.push(ProductDetailPage, { id: id });
   }
 
 }

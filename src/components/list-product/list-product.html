@@ -1,5 +1,5 @@
 <!-- Generated template for the ListProductComponent component -->
-<button class="list-item" ion-item *ngFor="let prod of productList.product" (click)="gotoProductDetail()">
+<button class="list-item" ion-item *ngFor="let prod of productList.product" (click)="gotoProductDetail(prod)">
   <ion-row no-padding class="content-row one-line">
       <!-- You can limit the rows of the description by using the class one-line. If you remove it, all the content from the row will be shown -->
       <ion-col no-padding width-18 class="item-avatar">

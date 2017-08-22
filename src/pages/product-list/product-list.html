@@ -7,7 +7,7 @@
 <ion-content class="list-mini-content">
     <div class="list-mini">
         <ion-list>
-            <list-product [productList]="Listprod"></list-product>
+            <list-product [productList]="Listprod" (id)="gotoproductdetail($event)"></list-product>
         </ion-list>
     </div>
 </ion-content>
