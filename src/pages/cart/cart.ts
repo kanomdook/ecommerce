@@ -19,9 +19,21 @@ export class CartPage {
     this.getCartDataService();
   }
 
+  ionViewDidLeave() {
+    this.updateCartDataService();
+  }
+
   getCartDataService() {
     this.cartService.getCartData().then((data) => {
       this.cartData = data;
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
+  updateCartDataService() {
+    this.cartService.updateCartData(this.cartData).then((data) => {
+      console.log(data);
     }, (error) => {
       console.error(error);
     });
@@ -33,8 +45,7 @@ export class CartPage {
 
   onDeleteItem(item) {
     // console.log('Delete ', item);
-    let index = this.cartData.products.findIndex(item => item.product._id === item.product._id);
-    this.cartData.products.splice(index, 1);
+    this.cartData.products.splice(item.index, 1);
     this.onCalculate(item);
   }
 
