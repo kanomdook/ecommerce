@@ -1,3 +1,4 @@
+import { window } from 'rxjs/operator/window';
 import { Component } from '@angular/core';
 import { NavController, ModalController, LoadingController } from 'ionic-angular';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
@@ -10,6 +11,8 @@ import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 import { GoogleLoginService } from '../google-login/google-login.service';
 import { TwitterLoginService } from '../twitter-login/twitter-login.service';
+
+import { signupService } from "../signup/signup.service";
 
 @Component({
   selector: 'signup-page',
@@ -26,14 +29,15 @@ export class SignupPage {
     public facebookLoginService: FacebookLoginService,
     public googleLoginService: GoogleLoginService,
     public twitterLoginService: TwitterLoginService,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public signupservice : signupService
   ) {
     this.main_page = { component: TabsNavigationPage };
 
     this.signup = new FormGroup({
       username: new FormControl('', Validators.required),
-      firstname: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       tel: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
@@ -42,14 +46,29 @@ export class SignupPage {
   }
 
   doSignup() {
-
+let data = {
+  username: this.signup.value.username,
+  firstName: this.signup.value.firstName,
+  lastName: this.signup.value.lastName,
+  email: this.signup.value.email,
+  tel: this.signup.value.tel,
+  password: this.signup.value.password
+}
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.signup.value.email)) {
       if (this.signup.value.password.length < 7) {
         alert('Please input password at less 8 character');
       } else if (this.signup.value.password !== this.signup.value.confirm_password) {
         alert("Passwords do not match")
       } else {
-        this.nav.setRoot(this.main_page.component);
+        this.signupservice.signup(data).then(res => {
+          localStorage.setItem('user', res);
+          this.nav.setRoot(this.main_page.component);  
+        }).catch(err => {
+          let error = JSON.parse(err._body);
+          alert(error.message.replace("11000 duplicate key error collection: mean-secret.users index:",""));
+        });
+        
+        
       }
     } else {
       alert('email incorrect')

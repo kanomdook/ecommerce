@@ -50,6 +50,7 @@ import { GoogleLoginService } from '../pages/google-login/google-login.service';
 import { TwitterLoginService } from '../pages/twitter-login/twitter-login.service';
 import { GoogleMapsService } from '../pages/maps/maps.service';
 import { LoginService } from '../pages/login/login.service';
+import { signupService } from "../pages/signup/signup.service";
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -233,8 +234,7 @@ export function createTranslateLoader(http: Http) {
     ScheduleService,
     ProductTypeService,
     ProductService,
-    ShopService,
-
+    ShopService,signupService,
     FacebookLoginService,
     GoogleLoginService,
     TwitterLoginService,
