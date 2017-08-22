@@ -1,28 +1,29 @@
 <h3 class="section-title" style="margin-top: 5%;">ส่งที่ </h3>
 
 <ion-list class="radio-group" radio-group [(ngModel)]="chk">
-    <ion-item class="radio-item">
+    <ion-item class="radio-item" (click)="address(datapayment.user)">
         <ion-label style="color:black;">
             <ion-row>
 
-                <ion-col col-12>{{datapayment.customer.displayName}}</ion-col>
+                <ion-col col-12>{{datapayment.user.displayName}}</ion-col>
                 <!--Sirintra Wannakhaew-->
             </ion-row>
             <ion-row>
-                <ion-col col-12>{{datapayment.customer.address.address}} {{datapayment.customer.address.subdistrict}}</ion-col>
+                <!-- <ion-col col-12>{{datapayment.user.address.address}} {{datapayment.user.address.subdistrict}}</ion-col> -->
                 <!--499/195 Saimai Bangkok 10220-->
             </ion-row>
             <ion-row>
-                <ion-col col-12>{{datapayment.customer.tel}}</ion-col>
+                <!-- <ion-col col-12>{{datapayment.user.tel}}</ion-col> -->
             </ion-row>
         </ion-label>
-        <ion-radio item-left checked value="true"></ion-radio>
+        <ion-radio item-left checked value="true" (click)="address(datapayment.user)"></ion-radio>
     </ion-item>
 </ion-list>
 <p style="color:blue;">เพิ่มที่อยู่ใหม่</p>
 
 
-<form class="forms-examples-segment" *ngIf="chk === 'false'" class="sample-form validations-form" [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+<form class="forms-examples-segment" *ngIf="chk === 'false'" class="sample-form validations-form" [formGroup]="validations_form"
+    (ngSubmit)="onSubmit(validations_form.value)">
     <section class="form-section">
 
         <ion-item>
@@ -106,17 +107,17 @@
 <ion-grid padding class="forms-examples-segment" *ngFor="let item of datapayment.products">
     <ion-row>
         <ion-col col-12 class="horizontal-item">
-            <p class="txt-centr">ร้านเสื้อมือสอง</p>
+            <p class="txt-centr">{{item.product.shopdetail ? item.product.shopdetail.name : 'shop'}}</p>
         </ion-col>
     </ion-row>
     <ion-row>
         <ion-col col-5 class="horizontal-item">
-            <preload-image [ratio]="{w:1, h:1}" src="{{item.img}}"></preload-image>
+            <preload-image [ratio]="{w:1, h:1}" src="{{item.img ? item.img[0].url : 'http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png'}}"></preload-image>
         </ion-col>
         <ion-col col-7 class="horizontal-item">
-            <p class="txt-centr">{{item.name}}</p>
+            <p class="txt-centr">{{item.product.name}}</p>
             <p class="txt-centr2">{{item.qty}}</p>
-            <p class="txt-centr2">{{item.price}}</p>
+            <p class="txt-centr2">{{item.product.unitprice}}</p>
         </ion-col>
     </ion-row>
     <p>
@@ -125,14 +126,14 @@
     <ion-list class="radio-tags" radio-group>
 
         <ion-row>
-            <ion-col col-6 class="horizontal-item" *ngFor="let itm of item.choice">
-                <ion-item class="radio-tag">
+            <ion-col col-6 class="horizontal-item" *ngFor="let itm of item.product.shippings" >
+                <ion-item class="radio-tag" (click)="setproduct(item,itm)">
                     <ion-label>
-                        <p style="white-space: normal; font-weight: bold;">{{itm.discription}}</p>
-                        <p style="white-space: normal;">{{itm.type}}</p>
+                        <p style="white-space: normal; font-weight: bold;">{{itm.shippingstartdate | date: 'dd/MM/yyyy'}} to {{itm.shippingenddate | date: 'dd/MM/yyyy'}}</p>
+                        <p style="white-space: normal;">{{itm.shipping.name ? itm.shipping.name : 'ส่งฟรี'}}</p>
 
                     </ion-label>
-                    <ion-radio [value]="itm.type"></ion-radio>
+                    <ion-radio [value]="itm.type" (click)="setproduct(item,itm)"></ion-radio>
                 </ion-item>
             </ion-col>
             <!--<ion-col col-6 class="horizontal-item">
@@ -157,7 +158,7 @@
         </ion-col>
         <ion-col text-right>
             <h3>
-                {{datapayment.total}} ฿
+                {{datapayment.amount}} ฿
             </h3>
         </ion-col>
     </ion-row>

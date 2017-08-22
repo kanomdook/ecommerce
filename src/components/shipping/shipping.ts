@@ -12,19 +12,41 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ShippingComponent {
   @Input() datapayment: any;
+  data: any = {
+    shipping: {
+
+    },
+    products: []
+  };
   @Output()
-  clickp: EventEmitter<string> = new EventEmitter<string>();
+  clickp: EventEmitter<any> = new EventEmitter<any>();
   text: string;
 
   constructor() {
     console.log('Hello ShippingComponent Component');
     this.text = 'Hello World';
   }
-
-  gotopayment(){
-    // window.event.stopPropagation();
-    this.clickp.emit('payment');
+  address(data) {
+    this.data.shipping.address = data.displayName;
   }
+
+  setproduct(product, shipping) {
+    this.data.products.push({
+      product: product.product,
+      qty: product.qty,
+      amount: product.itemamount,
+      delivery: {
+        description: shipping.shippingstartdate.substr(0,10) + ' to ' + shipping.shippingenddate.substr(0,10),
+        deliverytype: shipping.shipping.name ? shipping.shipping.name : 'free'
+      }
+    });
+  }
+
+  gotopayment() {
+    this.clickp.emit(this.data);
+  }
+
+
 
 
 }

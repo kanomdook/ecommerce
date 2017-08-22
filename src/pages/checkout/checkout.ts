@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { paymentModel } from './checkout.model';
 import { confirmModel } from './checkout.model';
 import { shippingModel } from './checkout.model';
+import { saveOrder } from "./checkout.model";
 import { ListingPage } from '../listing/listing';
 
 import { CheckoutService } from './checkoutservice';
@@ -26,6 +27,7 @@ export class CheckoutPage {
   payment: paymentModel = new paymentModel();
   shipping: shippingModel = new shippingModel();
   confirm: confirmModel = new confirmModel();
+  order: saveOrder = new saveOrder();
   constructor(public navCtrl: NavController, public navParams: NavParams, public checkoutservice: CheckoutService) {
 
     this.checkoutservice
@@ -51,6 +53,8 @@ export class CheckoutPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckoutPage');
+    // this.shipping = JSON.parse(this.navParams.get('cart'));
+    // console.log(JSON.parse(this.navParams.get('cart')));
   }
 
   gototest() {
@@ -59,11 +63,16 @@ export class CheckoutPage {
 
   shippingevent(event) {
     // alert(event);
-    this.testing = event;
+    this.testing = 'payment';
+    this.order.shipping = event.shipping;
+    this.order.items = event.products;
+    console.log(this.order);
   }
 
   paymentgateway(event) {
-    this.testing = event;
+    this.testing = 'confirm';
+    this.order.payment = event;
+    console.log(this.order);    
   }
 
   save(event) {
