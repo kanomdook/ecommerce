@@ -24,7 +24,7 @@
   <data-scroll-x [dataListX]="listing.lastvisit"></data-scroll-x>
 
   <h4 class="categories-title">{{'POPULARSHOPS' | translate}} <span class="see-all" (click)="openPageShopList()">see all</span></h4>
-  <data-grid [dataGrids]="listing.popularshops"></data-grid>
+  <data-grid [dataGrids]="listing.popularshops" (shopid)="gototShopDetail($event)"></data-grid>
 
   <h4 class="categories-title">{{'POPULARPRODUCTS' | translate}} <span class="see-all" (click)="openPageProductList()">see all</span></h4>
   <data-scroll-x [dataListX]="listing.popularproducts" (productid)="gotoDetail($event)"></data-scroll-x>

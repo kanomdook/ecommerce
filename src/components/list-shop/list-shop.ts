@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ShopList } from "./list-shop.model";
 import { ShopPage } from "../../pages/shop/shop";
 import { NavController } from "ionic-angular";
@@ -16,6 +16,8 @@ import { NavController } from "ionic-angular";
 export class ListShopComponent {
 
   @Input() inputshop: ShopList;
+  @Output()
+  shopid: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     public nav: NavController
@@ -24,8 +26,9 @@ export class ListShopComponent {
     // this.text = 'Hello World';
   }
 
-  gotoShopDetail() {
-    this.nav.push(ShopPage);
+  gotoShopDetail(shop) {
+    // this.nav.push(ShopPage);
+    this.shopid.emit(shop._id);
   }
 
 }

@@ -31,6 +31,7 @@
       <span class="detail-text">{{shop.email}}</span>
     </ion-item>
   </ion-list>
-  <h4 class="categories-title">{{'สินค้า'}} <span class="see-all">see all</span></h4>
-  <data-scroll-x [dataListX]="shop.products"></data-scroll-x>
+  
+  <h4 *ngIf="shop.products && shop.products.length > 0" class="categories-title">{{'สินค้า'}}<span class="see-all">see all</span></h4>
+  <data-scroll-x *ngIf="shop.products && shop.products.length > 0" [dataListX]="shop.products"></data-scroll-x>
 </ion-content>

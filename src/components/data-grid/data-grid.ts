@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DataGrids } from "./data-grid.model";
 import { NavController } from "ionic-angular";
 import { ShopPage } from "../../pages/shop/shop";
@@ -10,13 +10,15 @@ import { ShopPage } from "../../pages/shop/shop";
 })
 export class DataGridComponent {
   @Input() dataGrids: DataGrids;
-  
+  @Output()
+  shopid: EventEmitter<string> = new EventEmitter<string>();
+
   constructor(public nav: NavController) {
-    
+
   }
 
-  openPageShop(data){
-    this.nav.push(ShopPage);
+  openPageShop(data) {
+    this.shopid.emit(data._id);
   }
 
 }

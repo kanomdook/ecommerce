@@ -18,7 +18,8 @@ export class ShopPage {
   }
 
   ionViewDidLoad() {
-    this.shopService.getData().then(data =>{
+    // alert(this.navParams.get('shopid'));
+    this.shopService.getData(this.navParams.get('shopid')).then(data =>{
       this.shopDetail = data;
       this.shop = this.shopDetail.shop;
       this.shopCover = this.shop.coverimg;
