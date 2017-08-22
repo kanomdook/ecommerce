@@ -1,4 +1,4 @@
-<button class="list-item" ion-item *ngFor="let shop of inputshop.shop" (click)="gotoShopDetail()">
+<button class="list-item" ion-item *ngFor="let shop of inputshop.shop" (click)="gotoShopDetail(shop)">
   <ion-row no-padding class="content-row one-line">
     <!-- You can limit the rows of the description by using the class one-line. If you remove it, all the content from the row will be shown -->
     <ion-col no-padding width-18 class="item-avatar">

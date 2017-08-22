@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShoplistService } from "./shop-list.service";
 import { ShopList2 } from "./shop-list.model";
+import { ShopPage } from "../shop/shop";
 
 /**
  * Generated class for the ShopListPage page.
@@ -22,10 +23,14 @@ export class ShopListPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShopListPage');
+    // console.log('ionViewDidLoad ShopListPage');
     this.shoplistService.getData().then(data => {
       this.Listshop = data;
+      // console.log(this.Listshop);
     });
   }
 
+  gotoshopdetail(id) {
+    this.navCtrl.push(ShopPage, { shopid: id });
+  };
 }
