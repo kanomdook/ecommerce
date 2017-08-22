@@ -18,6 +18,14 @@ export class ProductService {
       .catch(this.handleError);
   }
 
+  addToCart(product): Promise<ProductItemsModel> {
+    product.user = JSON.parse(window.localStorage.getItem('user'));
+    return this.http.post(Constants.URL + 'api/manage-carts/add', product)
+      .toPromise()
+      .then(response => response.json() as ProductItemsModel)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

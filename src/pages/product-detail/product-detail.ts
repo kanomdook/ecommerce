@@ -25,8 +25,12 @@ export class ProductDetailPage {
       //console.log(this.productData);
     });
   }
-  goToSchedulePage() {
-    this.nav.push(CartPage)
+  addToCart(product) {
+    this.productService.addToCart(product).then((data) => {
+      this.nav.push(CartPage)
+    }, (error) => {
+      console.error(error);
+    });
   }
 
 }

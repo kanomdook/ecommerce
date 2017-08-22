@@ -61,7 +61,7 @@ let data = {
         alert("Passwords do not match")
       } else {
         this.signupservice.signup(data).then(res => {
-          localStorage.setItem('user', res);
+          localStorage.setItem('user', JSON.stringify(res));
           this.nav.setRoot(this.main_page.component);  
         }).catch(err => {
           let error = JSON.parse(err._body);

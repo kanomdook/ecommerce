@@ -51,7 +51,7 @@ export class LoginPage {
     this.loginService.logingin(userdata).then((user) => {
       this.loading.dismiss();
       // console.log("user : " + user);
-      localStorage.setItem('user', user);
+      localStorage.setItem('user', JSON.stringify(user));
       this.nav.setRoot(this.main_page.component);
     }, (error) => {
       // let er = JSON.parse(error);

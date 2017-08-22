@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { CheckoutPage } from "../checkout/checkout";
 import { CartService } from "./cart.service";
 import { CartModel } from "../../components/cart-list/cart-list.model";
@@ -11,12 +11,22 @@ import { CartModel } from "../../components/cart-list/cart-list.model";
 })
 export class CartPage {
   cartData: CartModel = new CartModel();
-  constructor(public navCtrl: NavController, public navParams: NavParams, public cartService: CartService) {
+  loading: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public cartService: CartService, public loadingCtrl: LoadingController) {
   }
 
-  ionViewDidLoad() {
-    // console.log('ionViewDidLoad CartPage');
+  ionViewWillEnter() {
     this.getCartDataService();
+  }
+
+  // ionViewDidLoad() {
+  //   // console.log('ionViewDidLoad CartPage');
+  //   this.getCartDataService();
+  // }
+
+  ionViewDidLeave() {
+    this.updateCartDataService();
   }
 
   getCartDataService() {
@@ -27,14 +37,24 @@ export class CartPage {
     });
   }
 
+  updateCartDataService() {
+    this.loading = this.loadingCtrl.create();
+    this.cartService.updateCartData(this.cartData).then((data) => {
+      this.loading.dismiss();      
+      console.log(data);
+    }, (error) => {
+      this.loading.dismiss();
+      console.error(error);
+    });
+  }
+
   onFavoriteItem(item) {
     // console.log('Favorite ', item);
   }
 
   onDeleteItem(item) {
     // console.log('Delete ', item);
-    let index = this.cartData.products.findIndex(item => item.product._id === item.product._id);
-    this.cartData.products.splice(index, 1);
+    this.cartData.products.splice(item.index, 1);
     this.onCalculate(item);
   }
 

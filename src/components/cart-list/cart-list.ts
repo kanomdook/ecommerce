@@ -20,7 +20,9 @@ export class CartListComponent {
     this.favorite.emit(item);
   }
 
-  deleteItem(item) {
+  deleteItem(item, i) {
+    console.log(i);
+    item.index = i;
     this.delete.emit(item);
   }
 

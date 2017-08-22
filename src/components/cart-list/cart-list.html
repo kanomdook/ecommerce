@@ -1,5 +1,5 @@
 <ion-list>
-  <ion-item class="notification-item" *ngFor="let data of dataCartList">
+  <ion-item class="notification-item" *ngFor="let data of dataCartList; let i = index">
     <ion-avatar item-left>
       <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="data.product.img[0].url"></preload-image>
     </ion-avatar>
@@ -9,7 +9,7 @@
     <button ion-button icon-only clear color="danger" class="circle-btn" (click)="favoriteItem(data)"> 
       <ion-icon name="md-heart-outline"></ion-icon>
     </button>
-    <button ion-button icon-only clear color="gray" class="circle-btn" (click)="deleteItem(data)">
+    <button ion-button icon-only clear color="gray" class="circle-btn" (click)="deleteItem(data,i)">
       <ion-icon name="ios-trash-outline"></ion-icon>
     </button>
     <p item-end class="qty-btn">
