@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { CheckoutPage } from "../checkout/checkout";
 import { CartService } from "./cart.service";
 import { CartModel } from "../../components/cart-list/cart-list.model";
+import { LoginPage } from "../login/login";
 
 @IonicPage()
 @Component({
@@ -17,16 +18,19 @@ export class CartPage {
   }
 
   ionViewWillEnter() {
-    this.getCartDataService();
+    let user = JSON.parse(window.localStorage.getItem('user'));
+    if (!user) {
+      this.navCtrl.push(LoginPage);
+    } else {
+      this.getCartDataService();
+    }
   }
 
-  // ionViewDidLoad() {
-  //   // console.log('ionViewDidLoad CartPage');
-  //   this.getCartDataService();
-  // }
-
   ionViewDidLeave() {
-    this.updateCartDataService();
+    let user = JSON.parse(window.localStorage.getItem('user'));
+    if (user && this.cartData._id) {
+      this.updateCartDataService();
+    }
   }
 
   getCartDataService() {
@@ -40,7 +44,7 @@ export class CartPage {
   updateCartDataService() {
     this.loading = this.loadingCtrl.create();
     this.cartService.updateCartData(this.cartData).then((data) => {
-      this.loading.dismiss();      
+      this.loading.dismiss();
       console.log(data);
     }, (error) => {
       this.loading.dismiss();

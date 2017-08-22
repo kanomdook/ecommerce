@@ -12,11 +12,8 @@ export class SettingsService {
         public nativeStorage: NativeStorage
     ) { }
 
-    getData(): Promise<ProfileModel> {
-        return this.http.get('./assets/example_data/profilesetting.json')
-            .toPromise()
-            .then(response => response.json() as ProfileModel)
-            .catch(this.handleError);
+    getData() {
+        return JSON.parse(window.localStorage.getItem('user'));
     }
 
     private handleError(error: any): Promise<any> {

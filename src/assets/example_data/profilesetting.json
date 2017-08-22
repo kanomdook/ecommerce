@@ -1,16 +1,14 @@
 {
-    "user": {
-        "displayName": "Theerasak Tubrit",
-        "email": "jigkoh3@gmail.com",
-        "firstName": "Theerasak",
-        "lastName": "Tubrit",
-        "password": "aQBLaRa2zMK2msi1TlUMQBnW/aGV/xmw30Uc9XGb7Yilo922xcJ797zDaCLthrSY6gdIJu9FLUI758sgkBK9Xw==",
-        "profileImageURL": "assets/images/profile/200x200suarez.png",
-        "provider": "local",
-        "roles": [
-            "user"
-        ],
-        "username": "usertest1"
-    },
+    "displayName": "Theerasak Tubrit",
+    "email": "jigkoh3@gmail.com",
+    "firstName": "Theerasak",
+    "lastName": "Tubrit",
+    "password": "aQBLaRa2zMK2msi1TlUMQBnW/aGV/xmw30Uc9XGb7Yilo922xcJ797zDaCLthrSY6gdIJu9FLUI758sgkBK9Xw==",
+    "profileImageURL": "assets/images/profile/200x200suarez.png",
+    "provider": "local",
+    "roles": [
+        "user"
+    ],
+    "username": "usertest1",
     "title": "Profile"
 }

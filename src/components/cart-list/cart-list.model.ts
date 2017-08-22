@@ -1,4 +1,5 @@
 export class CartModel {
+    _id: string;
     products: Array<ProductModel>;
     amount: number;
 }

@@ -30,7 +30,7 @@ export class SignupPage {
     public googleLoginService: GoogleLoginService,
     public twitterLoginService: TwitterLoginService,
     public loadingCtrl: LoadingController,
-    public signupservice : signupService
+    public signupservice: signupService
   ) {
     this.main_page = { component: TabsNavigationPage };
 
@@ -46,14 +46,14 @@ export class SignupPage {
   }
 
   doSignup() {
-let data = {
-  username: this.signup.value.username,
-  firstName: this.signup.value.firstName,
-  lastName: this.signup.value.lastName,
-  email: this.signup.value.email,
-  tel: this.signup.value.tel,
-  password: this.signup.value.password
-}
+    let data = {
+      username: this.signup.value.username,
+      firstName: this.signup.value.firstName,
+      lastName: this.signup.value.lastName,
+      email: this.signup.value.email,
+      tel: this.signup.value.tel,
+      password: this.signup.value.password
+    }
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.signup.value.email)) {
       if (this.signup.value.password.length < 7) {
         alert('Please input password at less 8 character');
@@ -62,13 +62,14 @@ let data = {
       } else {
         this.signupservice.signup(data).then(res => {
           localStorage.setItem('user', JSON.stringify(res));
-          this.nav.setRoot(this.main_page.component);  
+          this.nav.pop();
+          // this.nav.setRoot(this.main_page.component);  
         }).catch(err => {
           let error = JSON.parse(err._body);
-          alert(error.message.replace("11000 duplicate key error collection: mean-secret.users index:",""));
+          alert(error.message.replace("11000 duplicate key error collection: mean-secret.users index:", ""));
         });
-        
-        
+
+
       }
     } else {
       alert('email incorrect')
@@ -79,9 +80,9 @@ let data = {
 
   // changString(){
   //   if (this.signup.value.tel ) {
-      
+
   //   } else {
-      
+
   //   }
   // }
   // addplatform() {
