@@ -1,10 +1,10 @@
 <ion-scroll scrollX="true" class="horizontal-categories">
   <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of dataListX" (click)="openPageProductDetail(data)">
-          <preload-image [ratio]="{w:1, h:1}" [src]="data.imgUrl"></preload-image>
+          <preload-image [ratio]="{w:1, h:1}" [src]="data.img"></preload-image>
           <div class="product-box">
               <p class="txt-centr">{{data.name}}</p>
-              <p class="txt-centr2">{{data.price | number}} ฿</p>
+              <p class="txt-centr2">{{data.unitprice | number}} ฿</p>
           </div>
       </ion-col>
   </ion-row>

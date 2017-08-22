@@ -15,18 +15,18 @@
             <span class="detail-text">Price {{productData.unitprice | number}} ฿</span>
 
         </ion-item>
-        <ion-item class="detail-item">
+        <ion-item class="detail-item" *ngIf="productData.promotions">
             <h3 class="categories-title-pomotion">
                 <ion-icon name="md-pricetags"></ion-icon> {{' Promotion' | translate}}</h3>
             <span class="detail-text">เมือซื้อเสื้อยีนส์ 1 แถม กางเกงยีนส์ขาสั้น 1 ตัว</span>
         </ion-item>
 
-        <ion-item class="detail-item">
+        <ion-item class="detail-item" *ngIf="productData.size">
             <h3>{{' Size' | translate}}</h3>
             <span class="detail-text">{{productData.size.detail}}</span>
         </ion-item>
 
-        <ion-list class="radio-tags" radio-group>
+        <ion-list class="radio-tags" radio-group *ngIf="productData.size">
             <ion-item *ngFor="let data of productData.size.sizedetail" class="radio-tag">
                 <ion-label>{{data.name}}</ion-label>
                 <ion-radio value="{{data.name}}"></ion-radio>
@@ -34,8 +34,8 @@
         </ion-list>
 
     </ion-list>
-    <h4 class="categories-title">Relation products</h4>
-    <data-scroll-x [dataListX]="productData.relationProducts"></data-scroll-x>
+     <h4 class="categories-title" *ngIf="productData.relationProducts">Relation products</h4>
+    <data-scroll-x [dataListX]="productData.relationProducts" *ngIf="productData.relationProducts"></data-scroll-x> 
 </ion-content>
 
 <ion-footer>

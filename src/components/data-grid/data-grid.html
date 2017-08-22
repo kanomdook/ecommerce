@@ -1,9 +1,9 @@
 <ion-row class="grid-categories">
   <ion-col width-50 class="category-item" *ngFor="let data of dataGrids" (click)="openPageShop(data)">
-    <background-image tappable class="category-heading" [src]="data.imgUrl">
+    <background-image tappable class="category-heading" [src]="data.img[0].url">
       <ion-row class="heading-row">
         <ion-col no-padding width-100>
-          <h2 class="category-title">{{data.title}}</h2>
+          <h2 class="category-title">{{data.name}}</h2>
         </ion-col>
       </ion-row>
     </background-image>

@@ -7,12 +7,16 @@ export class ListingModel {
 }
 
 export class ListingItemModel {
-  title: string;
-  imgUrl: string;
-  price: number;
+  name: string;
+  img: string;
+  unitprice: number;
 }
 
 export class PopularshopsItemModel {
-  title: string;
-  imgUrl: string;
+  name: string;
+  img: Array<img>;
+}
+
+export class img {
+  url: string;
 }

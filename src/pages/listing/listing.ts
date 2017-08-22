@@ -67,16 +67,20 @@ export class ListingPage {
     this.nav.push(ProductDetailPage);
   }
 
+  gotoDetail(id) {
+    this.nav.push(ProductDetailPage, { id: id });
+  }
+
   openPageShop() {
     this.nav.push(ShopPage);
   }
 
-  openPageShopList(){
-    this.nav.push(ShopListPage);    
+  openPageShopList() {
+    this.nav.push(ShopListPage);
   }
 
-  openPageProductList(){
-    this.nav.push(ProductListPage);    
+  openPageProductList() {
+    this.nav.push(ProductListPage);
   }
 
 }

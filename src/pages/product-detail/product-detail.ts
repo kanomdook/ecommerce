@@ -20,7 +20,7 @@ export class ProductDetailPage {
   }
 
   ionViewDidLoad() {
-    this.productService.getData().then(data => {
+    this.productService.getData(this.navParams.get('id')).then(data => {
       this.productData = data;
       //console.log(this.productData);
     });

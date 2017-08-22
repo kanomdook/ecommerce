@@ -4,13 +4,14 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { ListingModel } from './listing.model';
+import { Constants } from "../../app/app.contants";
 
 @Injectable()
 export class ListingService {
   constructor(public http: Http) {}
 
   getData(): Promise<ListingModel> {
-    return this.http.get('./assets/example_data/listing.json')
+    return this.http.get(Constants.URL + 'api/dashboards')
      .toPromise()
      .then(response => response.json() as ListingModel)
      .catch(this.handleError);

@@ -27,5 +27,5 @@
   <data-grid [dataGrids]="listing.popularshops"></data-grid>
 
   <h4 class="categories-title">{{'POPULARPRODUCTS' | translate}} <span class="see-all" (click)="openPageProductList()">see all</span></h4>
-  <data-scroll-x [dataListX]="listing.popularproducts"></data-scroll-x>
+  <data-scroll-x [dataListX]="listing.popularproducts" (productid)="gotoDetail($event)"></data-scroll-x>
 </ion-content>

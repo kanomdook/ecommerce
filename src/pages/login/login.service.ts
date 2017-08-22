@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import { UserModel } from "../login/login.model";
+import { Constants } from "../../app/app.contants";
 
 @Injectable()
 export class LoginService {
@@ -20,7 +21,7 @@ export class LoginService {
     // LOGIN to SERVER
     logingin(logindata): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.http.post(this.apiUrl + 'api/auth/signin', logindata, this.optionsURL).map(res => {
+            this.http.post(Constants.URL + 'api/auth/signin', logindata, this.optionsURL).map(res => {
                 return res.json();
             }).subscribe(data => {
                 resolve(data);

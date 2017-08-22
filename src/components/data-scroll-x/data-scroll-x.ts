@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DataListX } from "./list-x.model";
 import { NavController } from "ionic-angular";
 import { ProductDetailPage } from "../../pages/product-detail/product-detail";
@@ -11,13 +11,15 @@ import { ProductDetailPage } from "../../pages/product-detail/product-detail";
 export class DataScrollXComponent {
 
   @Input() dataListX: DataListX;
+  @Output()
+  productid: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(public nav: NavController) {
-    
+
   }
 
-  openPageProductDetail(data){
-    this.nav.push(ProductDetailPage);
+  openPageProductDetail(data) {
+    this.productid.emit(data._id);
   }
 
 }

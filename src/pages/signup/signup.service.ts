@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { Constants } from "../../app/app.contants";
 
 
 @Injectable()
@@ -19,7 +20,7 @@ export class signupService {
 
     signup(signupdata): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.http.post(this.apiUrl + 'api/auth/signup', signupdata, this.optionsURL).map(res => {
+            this.http.post(Constants.URL + 'api/auth/signup', signupdata, this.optionsURL).map(res => {
                 return res.json();
             }).subscribe(data => {
                 resolve(data);
