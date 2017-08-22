@@ -26,9 +26,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make WalkthroughPage the root (or first) page
-  rootPage: any = LoginPage;
+  // rootPage: any = LoginPage;
   // rootPage: any = FunctionalitiesPage;
-  // rootPage: any = TabsNavigationPage;
+  rootPage: any = TabsNavigationPage;
   textDir: string = "ltr";
 
   pages: Array<{ title: any, icon: string, component: any }>;
