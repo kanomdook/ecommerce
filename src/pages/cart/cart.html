@@ -9,9 +9,9 @@
       (remove)="onRemoveItem($event)"></cart-list>
   </ion-list>
 </ion-content>
-<ion-footer *ngIf="cartData.amount">
+<ion-footer>
   <ion-toolbar>
-    <ion-grid>
+    <ion-grid *ngIf="cartData.amount">
       <ion-row>
         <ion-col col-6 text-left>
           <h2 class="h2-total color-c">Total price</h2>
@@ -22,7 +22,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <div style="text-align: center;">
+    <div style="text-align: center;" *ngIf="cartData.amount">
       <button ion-button icon-left full color="btn" (click)="onPayment()">
         <ion-icon name="cash"></ion-icon>PayMent
       </button>
