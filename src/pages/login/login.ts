@@ -1,3 +1,4 @@
+import { window } from 'rxjs/operator/window';
 import { LoginService } from './login.service';
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
@@ -43,12 +44,17 @@ export class LoginPage {
 
   doLogin() {
     this.loading = this.loadingCtrl.create();
+    let userdata = { "username": this.login.value.username, "password": this.login.value.password };
+    // console.log(userdata);
+
     // LOGIN with route api
-    this.loginService.logingin(this.login.value.username).then((user) => {
+    this.loginService.logingin(userdata).then((user) => {
       this.loading.dismiss();
-      console.log("user : " + user);
+      // console.log("user : " + user);
+      localStorage.setItem('user', user);
       this.nav.setRoot(this.main_page.component);
     }, (error) => {
+      // let er = JSON.parse(error);
       this.loading.dismiss();
       console.error(error);
     });

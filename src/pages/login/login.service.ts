@@ -7,7 +7,7 @@ import { UserModel } from "../login/login.model";
 @Injectable()
 export class LoginService {
     // apiUrl: string = 'https://ecomm.herokuapp.com/';
-    apiUrl: string = 'https://192.168.1.119:3000/';
+    apiUrl: string = 'http://localhost:3000/';
     headers = new Headers({
         'Content-Type': 'application/json'
     });
