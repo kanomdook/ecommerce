@@ -45,6 +45,7 @@ export class CheckoutPage {
     this.checkoutservice
       .getShipping()
       .then(data => {
+        this.order.cart = data._id;
         this.shipping = data;
       });
 
@@ -81,7 +82,6 @@ export class CheckoutPage {
   }
 
   save(event) {
-    console.log(event);
     this.checkoutservice
       .saveOrder(event)
       .then(data => {

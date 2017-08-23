@@ -52,6 +52,7 @@ export class choice {
 }
 
 export class shippingModel {
+    _id: string;
     user: customer = new customer();
     products: Array<product>;
     total: number

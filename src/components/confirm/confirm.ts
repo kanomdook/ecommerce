@@ -14,7 +14,7 @@ import { CheckoutService } from "../../pages/checkout/checkoutservice";
 export class ConfirmComponent {
   confirm: any;
   @Output()
-  confirmOrder: EventEmitter<any> = new EventEmitter<string>();
+  confirmOrder: EventEmitter<any> = new EventEmitter<any>();
   text: string;
 
   constructor(public checkoutservice: CheckoutService) {

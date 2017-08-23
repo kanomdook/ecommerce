@@ -13,7 +13,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class PaymentComponent {
   @Input() paymentgateway: any;
   @Output()
-  paygateway: EventEmitter<string> = new EventEmitter<string>();
+  paygateway: EventEmitter<any> = new EventEmitter<any>();
   text: string;
   data: any = {};
   constructor() {
