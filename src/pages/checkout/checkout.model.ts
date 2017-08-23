@@ -61,6 +61,7 @@ export class saveOrder {
     shipping: saveOrderShipping = new saveOrderShipping();
     items: Array<saveProducts>;
     payment: savePayment = new savePayment();
+    amount: number;
     discount: number;
     cart: string;
 }

@@ -27,6 +27,6 @@
         <payment [paymentgateway]="payment" (paygateway)="paymentgateway($event)"></payment>
     </ion-list>
     <ion-list padding *ngIf="testing==='confirm'">
-        <confirm [confirm]="confirm" (confirmOrder)="save($event)"></confirm>
+        <confirm (confirmOrder)="save($event)"></confirm>
     </ion-list>
 </ion-content>

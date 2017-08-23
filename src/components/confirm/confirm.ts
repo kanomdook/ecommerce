@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { CheckoutService } from "../../pages/checkout/checkoutservice";
 
 /**
  * Generated class for the ConfirmComponent component.
@@ -11,18 +12,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: 'confirm.html'
 })
 export class ConfirmComponent {
-  @Input() confirm: any;
+  confirm: any;
   @Output()
-  confirmOrder: EventEmitter<string> = new EventEmitter<string>();
+  confirmOrder: EventEmitter<any> = new EventEmitter<string>();
   text: string;
 
-  constructor() {
+  constructor(public checkoutservice: CheckoutService) {
+    this.confirm = checkoutservice.getOrder();
     console.log('Hello ConfirmComponent Component');
     this.text = 'Hello World';
   }
 
   placeorder() {
-    this.confirmOrder.emit('success');
+    this.confirmOrder.emit(this.confirm);
   }
 
 }

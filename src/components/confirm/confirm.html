@@ -2,16 +2,16 @@
 <ion-list no-lines>
     <ion-item>
         <p>มูลค่าสินค้า</p>
-        <p item-end>{{confirm.confirm.price}} บาท</p>
+        <p item-end>{{confirm.amount}} บาท</p>
     </ion-item>
     <ion-item>
         <p>ค่าธรรมเนียมการจัดส่งสินค้า</p>
-        <p item-end>{{confirm.confirm.deliveryprice}} บาท</p>
+         <p item-end>{{confirm.discount}} บาท</p> 
     </ion-item>
     <ion-row>
         <ion-col col-8>
             <ion-item>
-                <ion-input type="text" placeholder="ใส่โค้ดส่วนลดตรงนี้"></ion-input>
+                <ion-input type="number" [(ngModel)]="confirm.discount" placeholder="ใส่โค้ดส่วนลดตรงนี้"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col col-4>
@@ -20,7 +20,7 @@
     </ion-row>
     <ion-item>
         <p><b>ยอดสุทธิ (รวมภาษีมูลค่าเพิ่ม)</b></p>
-        <p item-end><b>{{confirm.confirm.amount}} บาท</b></p>
+         <p item-end><b>{{confirm.amount - confirm.discount}} บาท</b></p> 
     </ion-item>
 </ion-list>
 <ion-row>
@@ -32,29 +32,29 @@
     <ion-item-divider color="light"><b>รายการ</b></ion-item-divider>
 </ion-item-group>
 <div class="list-mini">
-    <ion-list>
-        <ion-item *ngFor="let item of confirm.confirm.products">
+    <ion-list *ngFor="let itm of confirm.items">
+        <ion-item>
             <ion-row>
                 <ion-col col-12>
-                    <p>{{item.shop}}</p>
+                     <p>{{itm.product.shopseller ? itm.product.shopseller.name : 'shop'}}</p> 
                 </ion-col>
             </ion-row>
             <ion-row no-padding>
                 <ion-col no-padding width-20 class="item-avatar">
-                    <preload-image class="avatar-image" [ratio]="{w:1, h:1}" src="{{item.img}}"></preload-image>
+                     <preload-image class="avatar-image" [ratio]="{w:1, h:1}" src="{{itm.product.img ? itm.product.img[0].url : 'http://img.nike.com.hk/resources/product/719760-702/719760-702_BL2.png'}}"></preload-image> 
                 </ion-col>
                 <ion-col no-padding width-60 class="white-space">
-                    <h3 class="item-title">{{item.name}}</h3>
-                    <p class="item-description">จำนวน: {{item.qty}}</p>
+                     <h3 class="item-title">{{itm.product.name}}</h3> 
+                     <p class="item-description">จำนวน: {{itm.qty}}</p> 
                 </ion-col>
                 <ion-col no-padding width-20>
-                    <p>{{item.price}} บาท</p>
+                     <p>{{itm.amount}} บาท</p> 
                 </ion-col>
             </ion-row>
             <ion-row no-padding>
                 <ion-col padding width-100 text-center class="ion-col-deilvery">
-                    <p>{{item.choice.discription}}</p>
-                    <p>{{item.choice.type}}</p>
+                     <p>{{itm.delivery.description}}</p>
+                    <p>{{itm.delivery.deliverytype}}</p> 
                 </ion-col>
             </ion-row>
         </ion-item>
@@ -62,9 +62,8 @@
     <ion-row>
         <p>ที่อยู่จัดส่ง</p>
         <ion-col col-12>
-            <p class="review-address"><b>{{confirm.confirm.customer.displayName}}</b></p>
-            <p class="review-address">{{confirm.confirm.customer.address.address}} {{confirm.confirm.customer.address.subdistrict}} {{confirm.confirm.customer.address.district}} {{confirm.confirm.customer.address.province}} {{confirm.confirm.customer.address.postcode}}</p>
-            <p class="review-address">โทร : {{confirm.confirm.customer.tel}} , {{confirm.confirm.customer.email}}</p>
+            <p class="review-address">{{confirm.shipping.address}} {{confirm.shipping.subdistrict}} {{confirm.shipping.district}} {{confirm.shipping.province}} {{confirm.shipping.postcode}}</p>
+            <!-- <p class="review-address">โทร : {{confirm.confirm.customer.tel}} , {{confirm.confirm.customer.email}}</p>  -->
         </ion-col>
     </ion-row>
     <ion-row>

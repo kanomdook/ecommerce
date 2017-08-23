@@ -16,7 +16,8 @@ export class ShippingComponent {
     shipping: {
 
     },
-    products: []
+    products: [],
+    amount: 0
   };
   @Output()
   clickp: EventEmitter<any> = new EventEmitter<any>();
@@ -27,23 +28,43 @@ export class ShippingComponent {
     this.text = 'Hello World';
   }
   address(data) {
+    this.data.amount = this.datapayment.amount;
     this.data.shipping.address = data.displayName;
+    this.data.shipping.subdistrict = 'subdistrict';
+    this.data.shipping.district = 'district';
+    this.data.shipping.province = 'province';
+    this.data.shipping.postcode = 'postcode';
   }
 
   setproduct(product, shipping) {
-    this.data.products.push({
-      product: product.product,
-      qty: product.qty,
-      amount: product.itemamount,
-      delivery: {
-        description: shipping.shippingstartdate.substr(0,10) + ' to ' + shipping.shippingenddate.substr(0,10),
-        deliverytype: shipping.shipping.name ? shipping.shipping.name : 'free'
-      }
-    });
+    var checkProduct = false;
+    if (this.data.products && this.data.products.length > 0) {
+      this.data.products.forEach(itm => {
+        if (itm.product === product.product) {
+          checkProduct = true;
+        }
+      });
+    }
+    if (!checkProduct) {
+      this.data.products.push({
+        product: product.product,
+        qty: product.qty,
+        amount: product.itemamount,
+        delivery: {
+          description: shipping.shippingstartdate.substr(0, 10) + ' to ' + shipping.shippingenddate.substr(0, 10),
+          deliverytype: shipping.shipping.name ? shipping.shipping.name : 'free'
+        }
+      });
+    }
+
   }
 
   gotopayment() {
-    this.clickp.emit(this.data);
+    if (this.data.products.length === this.datapayment.products.length) {
+      this.clickp.emit(this.data);
+    }else{
+      alert('Please select products');
+    }
   }
 
 

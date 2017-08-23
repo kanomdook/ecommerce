@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { paymentModel } from './checkout.model';
 import { confirmModel } from './checkout.model';
 import { shippingModel } from './checkout.model';
+import { saveOrder } from "./checkout.model";
 import { Constants } from "../../app/app.contants";
 
 @Injectable()
@@ -31,6 +32,20 @@ export class CheckoutService {
             .then(response => response.json() as confirmModel)
             .catch(this.handleError);
     }
+
+    getOrder() {
+        return JSON.parse(window.localStorage.getItem('order'));
+    }
+
+    saveOrder(data) {
+        return this.http.post(Constants.URL + 'api/payments', data).toPromise()
+            .then(function (response) {
+                window.localStorage.removeItem('order');
+                response.json() as saveOrder;
+            })
+            .catch(this.handleError);
+    }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

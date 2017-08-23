@@ -66,17 +66,30 @@ export class CheckoutPage {
     this.testing = 'payment';
     this.order.shipping = event.shipping;
     this.order.items = event.products;
+    this.order.amount = event.amount;
+    this.order.discount = 0;
+    // this.order.amount = 
+    window.localStorage.setItem('order', JSON.stringify(this.order));
     console.log(this.order);
   }
 
   paymentgateway(event) {
     this.testing = 'confirm';
     this.order.payment = event;
-    console.log(this.order);    
+    window.localStorage.setItem('order', JSON.stringify(this.order));
+    console.log(this.order);
   }
 
   save(event) {
-    this.navCtrl.setRoot(ListingPage);
+    console.log(event);
+    this.checkoutservice
+      .saveOrder(event)
+      .then(data => {
+        this.navCtrl.setRoot(ListingPage);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
 }
