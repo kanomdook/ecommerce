@@ -18,8 +18,21 @@ export class ShopItemsModel {
     detail: string;
     review: Array<ReviewsModel>;
     rate: number;
+    address: Array<address>;
     historylog: Array<HistorylogsModel>;
     products: Array<ProductsModel>;
+}
+
+export class address {
+    _id: string;
+    firstname: string;
+    lastname: string;
+    tel: string;
+    address: string;
+    subdistrict: string;
+    district: string;
+    province: string;
+    postcode: string;
 }
 
 export class ReviewsModel {

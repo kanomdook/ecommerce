@@ -36,6 +36,7 @@ export class CartPage {
   getCartDataService() {
     this.cartService.getCartData().then((data) => {
       this.cartData = data;
+      window.localStorage.setItem('cart', JSON.stringify(data));      
     }, (error) => {
       console.error(error);
     });
@@ -45,6 +46,7 @@ export class CartPage {
     this.loading = this.loadingCtrl.create();
     this.cartService.updateCartData(this.cartData).then((data) => {
       this.loading.dismiss();
+      window.localStorage.setItem('cart', JSON.stringify(data));      
       console.log(data);
     }, (error) => {
       this.loading.dismiss();

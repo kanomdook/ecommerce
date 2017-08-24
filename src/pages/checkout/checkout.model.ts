@@ -4,8 +4,10 @@ export class paymentModel {
 }
 
 export class payment {
-    type: string;
-    img: string;
+    name: string;
+    img: {
+        url: string;
+    };
 }
 
 export class counter {
@@ -68,6 +70,10 @@ export class saveOrder {
 }
 
 export class saveOrderShipping {
+    _id: string;
+    firstname: string;
+    lastname: string;
+    tel: string;
     address: string;
     subdistrict: string;
     district: string;

@@ -8,22 +8,13 @@ export class ProductItemsModel {
     rate: number;
     qa: Array<QASModel>;
     promotion: Array<PomotionsModel>;
-    // favorite: Array<string>;
-    // historyLog: Array<string>;
-    // stock: {
-    //     stockvalue: Array<StockvalueModel>;
-    //     sumin: number;
-    //     sumout: number;
-    //     amount: number;
-    // };
     qty: number;
     issize: boolean;
     size: ProductDataSize = new ProductDataSize();
-    // category: Array<CategoryModel>;
-    // payment: Array<PaymentModel>;
     shipping: Array<ShippingModel>;
-    shop: string;
+    shopseller: string;
     relationProducts: Array<RelationProductsModel>;
+    selectedsize : string;
 }
 
 export class ProductDataSize {
@@ -59,7 +50,6 @@ export class PomotionsModel {
 
 export class SizeDetailModel {
     name: string;
-    qty: number;
 }
 
 // export class CategoryModel {

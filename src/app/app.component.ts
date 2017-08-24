@@ -16,6 +16,7 @@ import { ProductTypesModel } from '../providers/product-type/product-type.model'
 import { ProductTypeService } from '../providers/product-type/product-type.service';
 
 import { LoginPage } from '../pages/login/login';
+import { CartService } from "../pages/cart/cart.service";
 
 @Component({
   selector: 'app-root',
@@ -46,7 +47,8 @@ export class MyApp {
     public statusBar: StatusBar,
     public translate: TranslateService,
     public toastCtrl: ToastController,
-    public productTypeService: ProductTypeService
+    public productTypeService: ProductTypeService,
+    public cartService: CartService
   ) {
     translate.setDefaultLang('en');
     translate.use('en');
@@ -88,7 +90,7 @@ export class MyApp {
     });
 
     this.getProductTypeList();
-
+    this.getCartDataService();
   }
 
   openPage(page) {
@@ -121,6 +123,14 @@ export class MyApp {
   getProductTypeList() {
     this.productTypeService.getData().then(data => {
       this.productTypeList = data;
+    });
+  }
+
+  getCartDataService() {
+    this.cartService.getCartData().then((data) => {
+      window.localStorage.setItem('cart', JSON.stringify(data));
+    }, (error) => {
+      console.error(error);
     });
   }
 }

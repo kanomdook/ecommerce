@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { paymentModel } from './checkout.model';
+import { payment } from './checkout.model';
 import { confirmModel } from './checkout.model';
 import { shippingModel } from './checkout.model';
 import { saveOrder } from "./checkout.model";
@@ -24,16 +24,30 @@ import { CheckoutService } from './checkoutservice';
 })
 export class CheckoutPage {
   testing: string = 'address';
-  payment: paymentModel = new paymentModel();
+  payment: Array<payment>;
   shipping: shippingModel = new shippingModel();
   confirm: confirmModel = new confirmModel();
   order: saveOrder = new saveOrder();
+  listaddress: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public checkoutservice: CheckoutService) {
 
     this.checkoutservice
       .getConfirm()
       .then(data => {
         this.confirm = data;
+      });
+
+    this.checkoutservice
+      .getConfirm()
+      .then(data => {
+        this.confirm = data;
+      });
+
+    this.checkoutservice
+      .getAddress()
+      .then(data => {
+        console.log(data);
+        this.listaddress = data;
       });
 
     this.checkoutservice
@@ -82,6 +96,7 @@ export class CheckoutPage {
   }
 
   save(event) {
+    // console.log(event);
     this.checkoutservice
       .saveOrder(event)
       .then(data => {

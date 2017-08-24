@@ -12,6 +12,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ShippingComponent {
   @Input() datapayment: any;
+  @Input() listdataaddress: Array<any>;
   data: any = {
     shipping: {
 
@@ -27,13 +28,15 @@ export class ShippingComponent {
     console.log('Hello ShippingComponent Component');
     this.text = 'Hello World';
   }
-  address(data) {
+  selectaddress(data) {
+    console.log(data);
+    this.data.shipping = data;
     this.data.amount = this.datapayment.amount;
-    this.data.shipping.address = data.displayName;
-    this.data.shipping.subdistrict = 'subdistrict';
-    this.data.shipping.district = 'district';
-    this.data.shipping.province = 'province';
-    this.data.shipping.postcode = 'postcode';
+    // this.data.shipping.address = data.displayName;
+    // this.data.shipping.subdistrict = 'subdistrict';
+    // this.data.shipping.district = 'district';
+    // this.data.shipping.province = 'province';
+    // this.data.shipping.postcode = 'postcode';
   }
 
   setproduct(product, shipping) {
@@ -52,7 +55,7 @@ export class ShippingComponent {
         amount: product.itemamount,
         delivery: {
           description: shipping.shippingstartdate.substr(0, 10) + ' to ' + shipping.shippingenddate.substr(0, 10),
-          deliverytype: shipping.shipping.name ? shipping.shipping.name : 'free'
+          deliverytype: shipping.shipping ? shipping.shipping.name : 'free'
         }
       });
     }
@@ -62,7 +65,8 @@ export class ShippingComponent {
   gotopayment() {
     if (this.data.products.length === this.datapayment.products.length) {
       this.clickp.emit(this.data);
-    }else{
+    } else {
+      console.log(this.listdataaddress);
       alert('Please select products');
     }
   }

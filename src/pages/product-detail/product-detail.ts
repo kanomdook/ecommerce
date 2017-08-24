@@ -26,7 +26,18 @@ export class ProductDetailPage {
       //console.log(this.productData);
     });
   }
+
+  selectSize(size) {
+    this.productData.selectedsize = size;
+    console.log(this.productData);
+  }
+
   addToCart(product) {
+    if (product.issize && !this.productData.selectedsize) {
+      alert('Please select size.');
+      return false;
+    }
+
     let user = JSON.parse(window.localStorage.getItem('user'));
     if (user) {
       this.productService.addToCart(product).then((data) => {
@@ -35,8 +46,9 @@ export class ProductDetailPage {
         console.error(error);
       });
     } else {
-      this.nav.push(LoginPage);      
+      this.nav.push(LoginPage);
     }
+
   }
 
 }
