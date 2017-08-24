@@ -27,7 +27,7 @@
         <ion-radio item-left (click)="selectaddress(itmadd)"></ion-radio>
     </ion-item>
 </ion-list>
-<p style="color:blue;">เพิ่มที่อยู่ใหม่</p>
+<p style="color:blue;" (click)="showPrompt()">เพิ่มที่อยู่ใหม่</p>
 
 
 <form class="forms-examples-segment" *ngIf="chk === 'false'" class="sample-form validations-form" [formGroup]="validations_form"

@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the ShippingComponent component.
@@ -24,7 +25,7 @@ export class ShippingComponent {
   clickp: EventEmitter<any> = new EventEmitter<any>();
   text: string;
 
-  constructor() {
+  constructor(public alertCtrl: AlertController) {
     console.log('Hello ShippingComponent Component');
     this.text = 'Hello World';
   }
@@ -38,6 +39,8 @@ export class ShippingComponent {
     // this.data.shipping.province = 'province';
     // this.data.shipping.postcode = 'postcode';
   }
+
+
 
   setproduct(product, shipping) {
     var checkProduct = false;
@@ -69,6 +72,62 @@ export class ShippingComponent {
       console.log(this.listdataaddress);
       alert('Please select products');
     }
+  }
+
+  showPrompt() {
+    let prompt = this.alertCtrl.create({
+      title: 'New Address',
+      inputs: [
+        {
+          name: 'firstname',
+          placeholder: 'Firstname'
+        },
+        {
+          name: 'lastname',
+          placeholder: 'Lastname'
+        },
+        {
+          name: 'tel',
+          placeholder: 'Tel'
+        },
+        {
+          name: 'address',
+          placeholder: 'Address'
+        },
+        {
+          name: 'subdistrict',
+          placeholder: 'Subdistrict'
+        },
+        {
+          name: 'district',
+          placeholder: 'District'
+        },
+        {
+          name: 'province',
+          placeholder: 'Province'
+        },
+        {
+          name: 'postcode',
+          placeholder: 'Postcode'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.listdataaddress.push(data);
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
 
