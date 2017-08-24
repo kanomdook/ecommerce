@@ -31,7 +31,15 @@
       <span class="detail-text">{{shop.email}}</span>
     </ion-item>
   </ion-list>
-  
+  <ion-list class="details-list" *ngIf="shop.address && shop.address.length > 0">
+    <ion-item *ngFor="let itm of shop.address" class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="pin"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">{{itm.address.address}} {{itm.address.district}} {{itm.address.subdistrict}} {{itm.address.province}} {{itm.address.postcode}}</span>
+      <span class="detail-text">{{itm.address.firstname}} {{itm.address.lastname}} tel: {{itm.address.tel}}</span>
+    </ion-item>
+  </ion-list>
   <h4 *ngIf="shop.products && shop.products.length > 0" class="categories-title">{{'สินค้า'}}<span class="see-all">see all</span></h4>
   <data-scroll-x *ngIf="shop.products && shop.products.length > 0" [dataListX]="shop.products"></data-scroll-x>
 </ion-content>

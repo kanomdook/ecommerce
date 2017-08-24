@@ -28,12 +28,26 @@ export class CheckoutPage {
   shipping: shippingModel = new shippingModel();
   confirm: confirmModel = new confirmModel();
   order: saveOrder = new saveOrder();
+  listaddress: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public checkoutservice: CheckoutService) {
 
     this.checkoutservice
       .getConfirm()
       .then(data => {
         this.confirm = data;
+      });
+
+    this.checkoutservice
+      .getConfirm()
+      .then(data => {
+        this.confirm = data;
+      });
+
+    this.checkoutservice
+      .getAddress()
+      .then(data => {
+        console.log(data);
+        this.listaddress = data;
       });
 
     this.checkoutservice

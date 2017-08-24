@@ -68,6 +68,10 @@ export class saveOrder {
 }
 
 export class saveOrderShipping {
+    _id: string;
+    firstname: string;
+    lastname: string;
+    tel: string;
     address: string;
     subdistrict: string;
     district: string;

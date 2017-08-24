@@ -26,6 +26,24 @@ export class CheckoutService {
             .then(response => response.json() as shippingModel)
             .catch(this.handleError);
     }
+
+    // getAddress(): Promise<listaddress> {
+    //     let user = JSON.parse(window.localStorage.getItem('user'));
+    //     return this.http.get(Constants.URL + 'api/addressbyusers/' + user._id)
+    //         .toPromise()
+    //         .then(response => response.json() as listaddress)
+    //         .catch(this.handleError);
+    // }
+
+    getAddress() {
+        let user = JSON.parse(window.localStorage.getItem('user'));
+        return this.http.get(Constants.URL + 'api/addressmasters')
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+
     getConfirm(): Promise<confirmModel> {
         return this.http.get('./assets/example_data/confirm.json')
             .toPromise()

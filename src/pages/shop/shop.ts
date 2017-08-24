@@ -22,6 +22,7 @@ export class ShopPage {
     this.shopService.getData(this.navParams.get('shopid')).then(data =>{
       this.shopDetail = data;
       this.shop = this.shopDetail.shop;
+      console.log(this.shop);
       this.shopCover = this.shop.coverimg;
       this.map = this.shop.map;
     });
