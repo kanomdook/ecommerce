@@ -52,8 +52,70 @@ export class choice {
 }
 
 export class shippingModel {
-    customer: customer = new customer();
+    _id: string;
+    user: customer = new customer();
     products: Array<product>;
     total: number
+}
+
+export class saveOrder {
+    shipping: saveOrderShipping = new saveOrderShipping();
+    items: Array<saveProducts>;
+    payment: savePayment = new savePayment();
+    amount: number;
+    discount: number;
+    cart: string;
+}
+
+export class saveOrderShipping {
+    address: string;
+    subdistrict: string;
+    district: string;
+    province: string;
+    postcode: string;
+}
+
+export class saveProducts {
+    product: ProductDetailModel = new ProductDetailModel();
+    qty: number;
+    amount: number;
+    delivery: delivery = new delivery();
+}
+
+export class savePayment {
+    paymenttype: string;
+    creditno: string;
+    creditname: string;
+    expdate: string;
+    creditcvc: string;
+    counterservice: string;
+}
+
+export class delivery {
+    description: string;
+    deliverytype: string;
+}
+
+export class ProductDetailModel {
+    _id: string;
+    name: string;
+    unitprice: number;
+    img: Array<ImageModel>;
+    size: SizeModel = new SizeModel();
+}
+
+export class ImageModel {
+    id: string;
+    url: string;
+}
+
+export class SizeModel {
+    detail: string;
+    sizedetail: Array<SizeDetailModel>;
+}
+
+export class SizeDetailModel {
+    name: string;
+    qty: number;
 }
 

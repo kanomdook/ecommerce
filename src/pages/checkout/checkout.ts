@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { paymentModel } from './checkout.model';
 import { confirmModel } from './checkout.model';
 import { shippingModel } from './checkout.model';
+import { saveOrder } from "./checkout.model";
 import { ListingPage } from '../listing/listing';
 
 import { CheckoutService } from './checkoutservice';
@@ -26,6 +27,7 @@ export class CheckoutPage {
   payment: paymentModel = new paymentModel();
   shipping: shippingModel = new shippingModel();
   confirm: confirmModel = new confirmModel();
+  order: saveOrder = new saveOrder();
   constructor(public navCtrl: NavController, public navParams: NavParams, public checkoutservice: CheckoutService) {
 
     this.checkoutservice
@@ -43,6 +45,7 @@ export class CheckoutPage {
     this.checkoutservice
       .getShipping()
       .then(data => {
+        this.order.cart = data._id;
         this.shipping = data;
       });
 
@@ -51,6 +54,8 @@ export class CheckoutPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckoutPage');
+    // this.shipping = JSON.parse(this.navParams.get('cart'));
+    // console.log(JSON.parse(this.navParams.get('cart')));
   }
 
   gototest() {
@@ -59,15 +64,32 @@ export class CheckoutPage {
 
   shippingevent(event) {
     // alert(event);
-    this.testing = event;
+    this.testing = 'payment';
+    this.order.shipping = event.shipping;
+    this.order.items = event.products;
+    this.order.amount = event.amount;
+    this.order.discount = 0;
+    // this.order.amount = 
+    window.localStorage.setItem('order', JSON.stringify(this.order));
+    console.log(this.order);
   }
 
   paymentgateway(event) {
-    this.testing = event;
+    this.testing = 'confirm';
+    this.order.payment = event;
+    window.localStorage.setItem('order', JSON.stringify(this.order));
+    console.log(this.order);
   }
 
   save(event) {
-    this.navCtrl.setRoot(ListingPage);
+    this.checkoutservice
+      .saveOrder(event)
+      .then(data => {
+        this.navCtrl.setRoot(ListingPage);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
 }

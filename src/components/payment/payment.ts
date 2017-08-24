@@ -13,16 +13,24 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class PaymentComponent {
   @Input() paymentgateway: any;
   @Output()
-  paygateway: EventEmitter<string> = new EventEmitter<string>();
+  paygateway: EventEmitter<any> = new EventEmitter<any>();
   text: string;
-
+  data: any = {};
   constructor() {
     console.log('Hello PaymentComponent Component');
     this.text = 'Hello World';
   }
 
+  paymenttype(type) {
+    this.data.paymenttype = type;
+  }
+
+  countername(name) {
+    this.data.counterservice = name;
+  }
+
   gotoStep3() {
-    this.paygateway.emit('confirm');
+    this.paygateway.emit(this.data);
   }
 
 }
