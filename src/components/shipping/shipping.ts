@@ -55,7 +55,7 @@ export class ShippingComponent {
         amount: product.itemamount,
         delivery: {
           description: shipping.shippingstartdate.substr(0, 10) + ' to ' + shipping.shippingenddate.substr(0, 10),
-          deliverytype: shipping.shipping.name ? shipping.shipping.name : 'free'
+          deliverytype: shipping.shipping ? shipping.shipping.name : 'free'
         }
       });
     }

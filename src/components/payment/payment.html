@@ -3,15 +3,15 @@
     <ion-list class="radio-tags" radio-group [(ngModel)]="payment2">
 
         <ion-row>
-            <ion-col col-4 *ngFor="let payment of paymentgateway.payment" (click)="paymenttype(payment.type)">
+            <ion-col col-4 *ngFor="let payment of paymentgateway" (click)="paymenttype(payment.name)">
                 <ion-item class="radio-tag">
                     <ion-label>
 
-                        <preload-image [ratio]="{w:1, h:1}" src="{{payment.img}}"></preload-image>
-                        <p style="white-space: normal;">{{payment.type}}</p>
+                        <preload-image [ratio]="{w:1, h:1}" src="{{payment.img.url}}"></preload-image>
+                        <p style="white-space: normal;">{{payment.name}}</p>
 
                     </ion-label>
-                    <ion-radio [value]="payment.type" (click)="paymenttype(payment.type)"></ion-radio>
+                    <ion-radio [value]="payment.name" (click)="paymenttype(payment.name)"></ion-radio>
                 </ion-item>
             </ion-col>
             <!--<ion-col col-4>
@@ -37,7 +37,7 @@
 
     </ion-list>
 </ion-grid>
-<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'credit'">
+ <ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'Credit Card'">
     <ion-row>
         <ion-col col-12>
             <ion-list>
@@ -83,7 +83,7 @@
       </button>
 </ion-grid>
 
-<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'delivery'">
+<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'Delivery'">
     <ion-row>
         <ion-col col-12>การชำระเงินผ่านระบบชำระเงินปลายทาง. ชำระเงินโดยตรงกับพนักงานส่งของในระหว่างการจัดส่งได้ทันที</ion-col>
     </ion-row>
@@ -92,8 +92,14 @@
       </button>
 </ion-grid>
 
-<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'counterservice'">
+<ion-grid padding class="forms-examples-segment" *ngIf="payment2 === 'Counter Service'">
     <ion-row>
+        <ion-col col-12>counterservice</ion-col>
+    </ion-row>
+    <button ion-button full color="warning" icon-left (click)="gotoStep3()">
+        รีวิวการสั่งสินค้า
+      </button>
+    <!-- <ion-row>
         <ion-col col-12>
             <ion-list class="radio-tags" radio-group [(ngModel)]="store">
                 <ion-grid>
@@ -109,62 +115,12 @@
                                 <ion-radio [value]="counter.name" (click)="countername(counter.name)"></ion-radio>
                             </ion-item>
                         </ion-col>
-                        <!--<ion-col col-4>
-                            <ion-item class="radio-tag">
-                                <ion-label>
-                                    <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/big-c.jpg"></preload-image>
-                                    <p class="font-custom">บิ๊กซี ซูเปอร์เซ็นเตอร์</p>
-                                </ion-label>
-                                <ion-radio value="bigc"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col col-4>
-                            <ion-item class="radio-tag">
-                                <ion-label>
-                                    <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/logo-pay-at-post.png"></preload-image>
-                                    <p class="font-custom">เพย์ แอท โพสต์</p>
-                                </ion-label>
-                                <ion-radio value="pay"></ion-radio>
-                            </ion-item>
-                        </ion-col>-->
                     </ion-row>
-
-                    <!--<ion-row>
-                        <ion-col col-4>
-                            <ion-item class="radio-tag">
-                                <ion-label>
-
-                                    <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/FamilyMart.JPG"></preload-image>
-                                    <p class="font-custom">แฟมิลี่มาร์ท</p>
-
-                                </ion-label>
-                                <ion-radio value="family"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col col-4>
-                            <ion-item class="radio-tag">
-                                <ion-label>
-                                    <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/m-pay.jpg"></preload-image>
-                                    <p class="font-custom">เอ็ม เพย์</p>
-                                </ion-label>
-                                <ion-radio value="mPay"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col col-4>
-                            <ion-item class="radio-tag">
-                                <ion-label>
-                                    <preload-image [ratio]="{w:1, h:1}" src="assets/images/payment/main-logo.png"></preload-image>
-                                    <p class="font-custom">เทสโก้ โลตัส</p>
-                                </ion-label>
-                                <ion-radio value="lotus"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                    </ion-row>-->
                 </ion-grid>
             </ion-list>
         </ion-col>
     </ion-row>
     <button *ngIf="store" ion-button full color="warning" icon-left (click)="gotoStep3()">
         Review Order
-      </button>
-</ion-grid>
+      </button> -->
+</ion-grid> 

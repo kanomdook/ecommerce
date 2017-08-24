@@ -4,8 +4,10 @@ export class paymentModel {
 }
 
 export class payment {
-    type: string;
-    img: string;
+    name: string;
+    img: {
+        url: string;
+    };
 }
 
 export class counter {
