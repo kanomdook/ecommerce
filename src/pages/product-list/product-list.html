@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content class="list-mini-content">
+    <searchbar [Filters]="Filterlist"></searchbar>
     <div class="list-mini">
         <ion-list>
             <list-product [productList]="Listprod" (id)="gotoproductdetail($event)"></list-product>

@@ -8,6 +8,7 @@ import { PaymentComponent } from './payment/payment';
 import { ConfirmComponent } from './confirm/confirm';
 import { ListShopComponent } from './list-shop/list-shop';
 import { ListProductComponent } from './list-product/list-product';
+import { SearchbarComponent } from './searchbar/searchbar';
 @NgModule({
 	declarations: [DataScrollXComponent,
     DataGridComponent,
@@ -17,7 +18,8 @@ import { ListProductComponent } from './list-product/list-product';
     PaymentComponent,
     ConfirmComponent,
     ListShopComponent,
-    ListProductComponent],
+    ListProductComponent,
+    SearchbarComponent],
 	imports: [],
 	exports: [DataScrollXComponent,
     DataGridComponent,
@@ -27,6 +29,7 @@ import { ListProductComponent } from './list-product/list-product';
     PaymentComponent,
     ConfirmComponent,
     ListShopComponent,
-    ListProductComponent]
+    ListProductComponent,
+    SearchbarComponent]
 })
 export class ComponentsModule {}

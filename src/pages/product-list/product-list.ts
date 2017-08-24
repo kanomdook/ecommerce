@@ -18,6 +18,7 @@ import { ProductDetailPage } from "../product-detail/product-detail";
 })
 export class ProductListPage {
   public Listprod: ProdLists = new ProdLists;
+  public Filterlist: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public productlistService: ProductlistService) {
   }
@@ -26,7 +27,24 @@ export class ProductListPage {
     console.log('ionViewDidLoad ProductListPage');
     this.productlistService.getData().then(data => {
       this.Listprod = data;
+
     });
+    this.Filterlist = {
+      filters: [{
+        key: 'ค้นหาจากร้าน',
+        value: 'ค้นหาจากร้าน'
+      },{
+        key: 'ค้นหาจากร้าน2',
+        value: 'ค้นหาจากร้าน2'
+      }],
+      sorts: [{
+        key: 'ราคามากไปน้อย',
+        value: 'ราคามากไปน้อย'
+      }]
+    };
+
+
+    ;
   }
 
   gotoproductdetail(id) {

@@ -1,0 +1,22 @@
+<!-- <ion-header>
+    <ion-navbar>
+        <ion-title>Popovers</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header> -->
+
+<ion-content #popoverContent class="popover-page" #popoverText>
+    <button (click)="clickFilter()"></button>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-row style="background-color: #fff;margin-bottom: 6px;padding: 10px; text-align:center">
+        <ion-col col-6 (click)="presentPopover($event)">
+            <ion-icon name="ios-funnel"></ion-icon> Filter</ion-col>
+        <ion-col col-6 (click)="presentPopover($event)">
+            <ion-icon name="swap"></ion-icon> Sort</ion-col>
+    </ion-row>
+    <!-- {{Filters}} -->
+</ion-content>
