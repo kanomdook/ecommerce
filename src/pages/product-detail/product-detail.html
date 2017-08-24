@@ -21,30 +21,30 @@
             <span class="detail-text">เมือซื้อเสื้อยีนส์ 1 แถม กางเกงยีนส์ขาสั้น 1 ตัว</span>
         </ion-item>
 
-        <ion-item class="detail-item" *ngIf="productData.size">
+        <ion-item class="detail-item" *ngIf="productData.issize">
             <h3>{{' Size' | translate}}</h3>
             <span class="detail-text">{{productData.size.detail}}</span>
         </ion-item>
 
         <ion-list class="radio-tags" radio-group *ngIf="productData.size">
-            <ion-item *ngFor="let data of productData.size.sizedetail" class="radio-tag">
+            <ion-item *ngFor="let data of productData.size.sizedetail" (tap)="selectSize(data.name)" class="radio-tag">
                 <ion-label>{{data.name}}</ion-label>
                 <ion-radio value="{{data.name}}"></ion-radio>
             </ion-item>
         </ion-list>
 
     </ion-list>
-     <h4 class="categories-title" *ngIf="productData.relationProducts">Relation products</h4>
-    <data-scroll-x [dataListX]="productData.relationProducts" *ngIf="productData.relationProducts"></data-scroll-x> 
+    <h4 class="categories-title" *ngIf="productData.relationProducts">Relation products</h4>
+    <data-scroll-x [dataListX]="productData.relationProducts" *ngIf="productData.relationProducts"></data-scroll-x>
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar color="btn">
+    <ion-toolbar color="btn" (click)="addToCart(productData)">
         <div style="text-align: center;">
             <ion-buttons>
-                <button ion-button icon-left (click)="addToCart(productData)">
-        <ion-icon name="cart"></ion-icon>Add to Cart
-      </button>
+                <button ion-button icon-left block>
+                    <ion-icon name="cart"></ion-icon>Add to Cart
+                </button>
             </ion-buttons>
         </div>
     </ion-toolbar>

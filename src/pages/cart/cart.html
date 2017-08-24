@@ -3,7 +3,7 @@
     <ion-title>{{ 'CART' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="ion-content">
   <ion-list>
     <cart-list [data]="cartData.products" (favorite)="onFavoriteItem($event)" (delete)="onDeleteItem($event)" (add)="onAddItem($event)"
       (remove)="onRemoveItem($event)"></cart-list>

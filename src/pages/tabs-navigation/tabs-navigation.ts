@@ -17,12 +17,21 @@ export class TabsNavigationPage {
   tab3Root: any;
   tab4Root: any;
   tab5Root: any;
-
+  cartData: any;
   constructor() {
     this.tab1Root = ListingPage;
     this.tab2Root = List1Page;
     this.tab3Root = NotificationsPage;
     this.tab4Root = SettingsPage;
     this.tab5Root = CartPage;
+  }
+  countBadgeCart() {
+    let cart = JSON.parse(window.localStorage.getItem('cart'));
+    let cartLength = cart.products.length;
+    let length = 0;
+    for (let i = 0; i < cartLength; i++) {
+      length += cart.products[i].qty;
+    }
+    return length.toString();
   }
 }
