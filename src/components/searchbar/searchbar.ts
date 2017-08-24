@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { NavParams, PopoverController } from "ionic-angular";
+import { NavParams, PopoverController, ViewController } from "ionic-angular";
 
 /**
  * Generated class for the SearchbarComponent component.
@@ -10,7 +10,7 @@ import { NavParams, PopoverController } from "ionic-angular";
 @Component({
   template: `
     <ion-list radio-group [(ngModel)]="fontFamily"  class="popover-page" (ionChange)="filterChange()">
-      <ion-item class="text-athelas" *ngFor="let filter of filterData.filters">
+      <ion-item class="text-athelas" *ngFor="let filter of filterData">
         <ion-label>{{filter.key}}</ion-label>
         <ion-radio [value]="filter.value"></ion-radio>
       </ion-item>
@@ -42,8 +42,10 @@ export class PopoverPage {
     },
   };
   filterData: any;
+  typeData: string;
   constructor(
-    private navParams: NavParams
+    private navParams: NavParams,
+    public viewCtrl: ViewController
   ) {
     // console.log(this.navParams.get('Filters'));
     this.filterData = this.navParams.get('Filters');
@@ -60,7 +62,10 @@ export class PopoverPage {
   }
 
   filterChange() {
-    console.log(this.fontFamily);
+    if (this.fontFamily) {
+      this.viewCtrl.dismiss(this.fontFamily);
+    }
+
   }
 
   getColorName(background) {
@@ -107,6 +112,10 @@ export class SearchbarComponent {
   @ViewChild('popoverContent', { read: ElementRef }) content: ElementRef;
   @ViewChild('popoverText', { read: ElementRef }) text: ElementRef;
   @Input() Filters: any;
+  @Output() Keywords: EventEmitter<any> = new EventEmitter<any>();
+  public keyword: string;
+  public selectFilter: string;
+  public selectSort: string;
   // data: any = {};
   constructor(
     public popoverCtrl: PopoverController,
@@ -116,11 +125,31 @@ export class SearchbarComponent {
     // console.log(JSON.stringify(this.Filters.filters));
   }
 
-  presentPopover(ev) {
+  presentPopoverFilter(ev) {
 
     let popover = this.popoverCtrl.create(PopoverPage, {
       contentEle: this.content.nativeElement,
-      Filters: this.Filters
+      Filters: this.Filters.filters
+    });
+
+    popover.onDidDismiss(data => {
+      this.selectFilter = data;
+    });
+
+    popover.present({
+      ev: ev
+    });
+  }
+
+  presentPopoverSort(ev) {
+
+    let popover = this.popoverCtrl.create(PopoverPage, {
+      contentEle: this.content.nativeElement,
+      Filters: this.Filters.sorts
+    });
+
+    popover.onDidDismiss(data => {
+      this.selectSort = data;
     });
 
     popover.present({
@@ -128,7 +157,16 @@ export class SearchbarComponent {
     });
   }
   getItems(e) {
-    console.log(e.target.value);
+    this.keyword = e.target.value;
+
+    if (this.keyword && this.keyword.trim() != '') {
+
+      this.Keywords.emit({
+        keyword: this.keyword,
+        filter: this.selectFilter,
+        sort: this.selectSort
+      });
+    }
   }
 
   clickFilter() {

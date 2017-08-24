@@ -26,6 +26,7 @@ export class ListProductComponent {
     console.log('Hello ListProductComponent Component');
     // this.text = 'Hello World';
   }
+  
 
   gotoProductDetail(prod) {
     // this.nav.push(ProductDetailPage);

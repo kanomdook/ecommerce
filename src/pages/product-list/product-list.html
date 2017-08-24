@@ -1,11 +1,11 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>{{Listprod.title}}</ion-title>
+        <ion-title *ngIf="Listprod.title">{{Listprod.title}}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content class="list-mini-content">
-    <searchbar [Filters]="Filterlist"></searchbar>
+    <searchbar [Filters]="Filterlist" (Keywords)="SearchList($event)"></searchbar>
     <div class="list-mini">
         <ion-list>
             <list-product [productList]="Listprod" (id)="gotoproductdetail($event)"></list-product>

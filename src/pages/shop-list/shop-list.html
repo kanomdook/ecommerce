@@ -1,13 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title *ngIf="Listshop.title">{{Listshop.title}}</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title *ngIf="Listshop.title">{{Listshop.title}}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content class="list-mini-content">
-  <div class="list-mini">
-    <ion-list>
-      <list-shop [inputshop]="Listshop" (shopid)="gotoshopdetail($event)"></list-shop>
-    </ion-list>
-  </div>
+    <searchbar [Filters]="Filterlist" (Keywords)="SearchList($event)"></searchbar>
+    <div class="list-mini">
+        <ion-list>
+            <list-shop [inputshop]="Listshop" (shopid)="gotoshopdetail($event)"></list-shop>
+        </ion-list>
+    </div>
 </ion-content>
