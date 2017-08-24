@@ -2,6 +2,7 @@ export class ListingModel {
   lastvisit: Array<ListingItemModel>;
   popularproducts: Array<ListingItemModel>;
   popularshops: Array<PopularshopsItemModel>;
+  bestsellers: Array<ListingItemModel>;
   banner_title: string;
   banner_image: string;
 }
