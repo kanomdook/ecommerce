@@ -107,6 +107,7 @@ import { ProductListPage } from "../pages/product-list/product-list";
 import { ProductlistService } from "../pages/product-list/product-list.service";
 import { SettingsService } from "../pages/settings/setting.service";
 import {CheckoutService} from "../pages/checkout/checkoutservice";
+import { PopoverPage, SearchbarComponent } from "../components/searchbar/searchbar";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -168,7 +169,9 @@ export function createTranslateLoader(http: Http) {
     ListShopComponent,
     ListProductComponent,
     ShopListPage,
-    ProductListPage
+    ProductListPage,
+    PopoverPage,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
@@ -222,7 +225,8 @@ export function createTranslateLoader(http: Http) {
     ShopPage,
     CheckoutPage,
     ShopListPage,
-    ProductListPage
+    ProductListPage,
+    PopoverPage
   ],
   providers: [
     FeedService,
