@@ -90,7 +90,11 @@ export class MyApp {
     });
 
     this.getProductTypeList();
-    this.getCartDataService();
+    let user = JSON.parse(window.localStorage.getItem('user'));
+    if (user) {
+      this.getCartDataService();
+    }
+
   }
 
   openPage(page) {

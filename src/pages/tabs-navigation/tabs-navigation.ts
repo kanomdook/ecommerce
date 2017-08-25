@@ -27,10 +27,12 @@ export class TabsNavigationPage {
   }
   countBadgeCart() {
     let cart = JSON.parse(window.localStorage.getItem('cart'));
-    let cartLength = cart.products ? cart.products.length : 0;
     let length = 0;
-    for (let i = 0; i < cartLength; i++) {
-      length += cart.products[i].qty;
+    if (cart) {
+      let cartLength = cart.products ? cart.products.length : 0;
+      for (let i = 0; i < cartLength; i++) {
+        length += cart.products[i].qty;
+      }
     }
     return length > 0 ? length.toString() : '';
   }
